@@ -38,4 +38,5 @@ build/
 .DS_Store
 
 ### User ###
-/src/test/
+/src/test/java/*
+!/src/test/java/demoTest.java
