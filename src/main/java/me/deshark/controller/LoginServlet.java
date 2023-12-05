@@ -5,10 +5,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import me.deshark.bean.UserBean;
 import me.deshark.dao.UserDao;
 import me.deshark.dao.impl.UserDaoImpl;
 import me.deshark.service.AuthenticationService;
 import me.deshark.service.impl.AuthenticationServiceImpl;
+import org.mindrot.jbcrypt.BCrypt;
 
 import javax.swing.text.AttributeSet;
 import java.io.IOException;
@@ -30,13 +32,13 @@ public class LoginServlet extends HttpServlet {
         String storedCaptcha = (String) session.getAttribute("captcha");
 
         // 这里可以添加验证验证码的逻辑，确保验证码输入正确
-        if (!enteredCaptcha.equals(storedCaptcha)) {
+        if (!enteredCaptcha.equalsIgnoreCase(storedCaptcha)) {
             // 验证码错误，重定向到登录页面并提示错误信息
             resp.sendRedirect(req.getContextPath() + "/login.jsp?error=captcha");
             return;
         }
 
-        if (authService.isValidUser(uid, password)) {
+        if (authService.checkPassword(uid, password)) {
             // 根据权限重定向到相应页面
             int permission = authService.getPermission(uid);
             if (permission == 1) {
@@ -50,6 +52,10 @@ public class LoginServlet extends HttpServlet {
                 // 重定向到管理员页面
                 resp.sendRedirect(req.getContextPath() + "/adminPage.jsp");
             }
+        } else {
+            // 密码不匹配，登录失败
+            resp.getWriter().println("Login failed");
         }
     }
+
 }

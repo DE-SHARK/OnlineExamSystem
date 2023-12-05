@@ -3,6 +3,7 @@ package me.deshark.dao.impl;
 import me.deshark.bean.UserBean;
 import me.deshark.dao.UserDao;
 import me.deshark.jdbc.JDBCUtils;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,16 +29,20 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public boolean isValidUser(String uid, String password) {
+    public String getPasswordByUid(String uid) {
+
         // 这是一个完美的将 SQL 语句的定义仍然在 try 块内且能够确保在使用完毕后 try-with-resources 中的资源会被正确地关闭的例子
         try (Connection connection = JDBCUtils.getConnection()) {
-            String sql = "SELECT * FROM users WHERE uid = ? AND password = ?";
+            String sql = "SELECT password FROM users WHERE uid = ?";
             try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
                 preparedStatement.setString(1, uid);
-                preparedStatement.setString(2, password);
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
                     // 如果查询结果存在，则表示用户名和密码匹配
-                    return resultSet.next();
+                    if (resultSet.next()) {
+                        return resultSet.getString(1);
+                    } else {
+                        return "null";
+                    }
                 }
             }
         } catch (SQLException e) {
@@ -74,7 +79,7 @@ public class UserDaoImpl implements UserDao {
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setString(1, user.getEmail());
                 preparedStatement.setString(2, user.getUsername());
-                preparedStatement.setString(3, user.getPassword());
+                preparedStatement.setString(3, BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
                 preparedStatement.executeUpdate();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
@@ -87,7 +92,7 @@ public class UserDaoImpl implements UserDao {
                 preparedStatement.setString(1, user.getUid());
                 preparedStatement.setString(2, user.getEmail());
                 preparedStatement.setString(3, user.getUsername());
-                preparedStatement.setString(4, user.getPassword());
+                preparedStatement.setString(4, BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
                 preparedStatement.setString(5, user.getSex());
                 preparedStatement.setString(6, user.getRegister_at());
                 preparedStatement.executeUpdate();
@@ -99,12 +104,14 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void updateUser(UserBean user) {
+
         String sql = "UPDATE users SET email = ?, username = ?, password = ?, permission = ?, sex = ?, avatar_url = ? WHERE uid = ?";
         try (Connection connection = JDBCUtils.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, user.getEmail());
             preparedStatement.setString(2, user.getUsername());
-            preparedStatement.setString(3, user.getPassword());
+            // 哈希加盐处理密码
+            preparedStatement.setString(3, BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
             preparedStatement.setString(4, user.getPermission());
             preparedStatement.setString(5, user.getSex());
             preparedStatement.setString(6, user.getAvatar_url());

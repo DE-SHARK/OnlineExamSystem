@@ -19,24 +19,6 @@ public class UserListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-//        // 1. 准备数据
-//        // 每页显示的记录数
-//        int recordsPerPage = 5;
-//        UserDao userDao = new UserDaoImpl();
-//        List<UserBean> users = userDao.getUsers(0, 5);
-//        int totalUsers = userDao.getTotalUsers();
-//        // 计算总页数
-//        int totalPages = (int) Math.ceil((double) totalUsers / recordsPerPage);
-//
-//        // 2. 存储到 request 中
-//        request.setAttribute("users", users);
-//        request.setAttribute("totalUsers", totalUsers);
-//        request.setAttribute("currentPage", 1);
-//        request.setAttribute("totalPages", totalPages);
-//
-//        // 3. 转发到 userList.jsp
-//        request.getRequestDispatcher("/userList.jsp").forward(request,response);
-
         // 获取当前页码，默认为第一页
         int currentPage = 1;
         String pageParam = request.getParameter("page");
@@ -72,4 +54,5 @@ public class UserListServlet extends HttpServlet {
         // 转发到用户列表页面
         request.getRequestDispatcher("/userList.jsp").forward(request, response);
     }
+
 }

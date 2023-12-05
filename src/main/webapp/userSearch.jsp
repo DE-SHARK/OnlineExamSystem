@@ -41,7 +41,7 @@
                 if (user.avatar_url) {
                     $("#avatar_preview").attr("src", user.avatar_url);
                 } else {
-                    $("#avatar_preview").attr("src", ""); // 清空头像预览
+                    $("#avatar_preview").attr("src", "images/0.png"); // 显示默认头像
                 }
             }
         });
@@ -69,7 +69,6 @@
         <label for="sex">性别:</label>
         <input type="text" id="sex" name="sex"><br>
         <label for="avatar_url">头像:</label>
-<%--        <input type="text" id="avatar_url" name="avatar_url"><br>--%>
         <input type="file" id="avatar_url" name="avatar_url"><br>
         <img id="avatar_preview" src="" alt="Avatar Preview" style="max-width: 200px; max-height: 200px;"><br>
 

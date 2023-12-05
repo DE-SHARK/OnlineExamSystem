@@ -24,11 +24,6 @@ public class UserSearchServlet extends HttpServlet {
         UserDao userDao = new UserDaoImpl();
         UserBean user = userDao.getUserByUsername(username);
 
-        // 构建动态 HTML 响应
-//        String resultHTML = buildUserHTML(user);
-//
-//        resp.setContentType("text/html");
-
         // 将用户对象转换为JSON字符串
         String userJson = convertUserToJson(user);
 
@@ -39,21 +34,9 @@ public class UserSearchServlet extends HttpServlet {
         }
     }
 
-    private String buildUserHTML(UserBean user) {
-        if (user == null) {
-            return "<p>User not found</p>";
-        }
-
-        return "<ul>" +
-                "<li>" + "学号: " + user.getUid() + "</li>" +
-                "<li>" + "邮箱: " + user.getEmail() + "</li>" +
-                "<li>" + "用户名: " + user.getUsername() + "</li>" +
-                "<li>" + "权限: " + user.getPermission() + "</li>" +
-                "</ul>";
-    }
-
     private String convertUserToJson(UserBean user) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(user);
     }
+
 }

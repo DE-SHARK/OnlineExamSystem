@@ -28,7 +28,7 @@ public class CheckUsernameServlet extends HttpServlet {
         }
     }
 
-    private boolean isUsernameAvailable(String username) {
+    public static boolean isUsernameAvailable(String username) {
 
         // 通过查询数据库来检查是否有同名用户
         String sql = "SELECT * FROM users WHERE username = ?";

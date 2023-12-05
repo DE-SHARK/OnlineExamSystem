@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UserDao {
 
-    boolean isValidUser(String uid, String password);
+    String getPasswordByUid(String uid);
 
     int getPermission(String uid);
 

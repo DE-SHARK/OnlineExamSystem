@@ -25,6 +25,7 @@ public class EncodingFilter implements Filter {
         // 设置请求和响应的字符编码
         request.setCharacterEncoding(encoding);
         response.setCharacterEncoding(encoding);
+        response.setContentType("text/html; charset=UTF-8");
 
         // 继续执行过滤器链
         chain.doFilter(request, response);

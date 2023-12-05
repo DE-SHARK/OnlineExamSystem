@@ -42,11 +42,11 @@
                 <%-- 遍历用户列表，显示用户信息 --%>
                 <c:forEach var="user" items="${requestScope.userList}">
                     <tr>
-                        <td>${user.uid}</td>
-                        <td>${user.email}</td>
-                        <td>${user.username}</td>
-                        <td>${user.sex}</td>
-                        <td>${user.register_at}</td>
+                        <td><c:out value="${user.uid}" /></td>
+                        <td><c:out value="${user.email}" /></td>
+                        <td><c:out value="${user.username}" /></td>
+                        <td><c:out value="${user.sex}" /></td>
+                        <td><c:out value="${user.register_at}" /></td>
                         <!-- 其他列 -->
                     </tr>
                 </c:forEach>

@@ -10,6 +10,7 @@ import jakarta.servlet.http.Part;
 import me.deshark.bean.UserBean;
 import me.deshark.dao.UserDao;
 import me.deshark.dao.impl.UserDaoImpl;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.File;
 import java.io.IOException;
@@ -78,4 +79,5 @@ public class UpdateUserServlet extends HttpServlet {
         // 设置用户的新头像路径
         user.setAvatar_url("images/" + newFileName);
     }
+
 }

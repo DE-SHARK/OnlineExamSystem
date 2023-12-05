@@ -8,6 +8,10 @@ import me.deshark.bean.UserBean;
 import me.deshark.dao.UserDao;
 import me.deshark.dao.impl.UserDaoImpl;
 
+import java.io.IOException;
+
+import static me.deshark.controller.CheckUsernameServlet.isUsernameAvailable;
+
 @WebServlet(name = "RegisterServlet", urlPatterns = "/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 
@@ -19,6 +23,16 @@ public class RegisterServlet extends HttpServlet {
         String email = req.getParameter("email");
         String username = req.getParameter("username");
         String password = req.getParameter("password");
+
+        // 同名用户检查
+        if (isUsernameAvailable(username)) {
+            try {
+                resp.getWriter().write("已存在同名用户，请重新输入。");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return; // 阻止注册
+        }
 
         // 调用 UserBean、UserDaoImpl 向数据库写入用户信息
         UserBean user = new UserBean();
@@ -33,4 +47,5 @@ public class RegisterServlet extends HttpServlet {
         UserDao userDao = new UserDaoImpl();
         userDao.addUser(user);
     }
+
 }

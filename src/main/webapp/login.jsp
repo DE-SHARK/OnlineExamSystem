@@ -11,9 +11,18 @@
     <title>登录页面</title>
     <script>
         function validateForm() {
-            let uid = document.forms["loginForm"]["uid"].value;
-            let password = document.forms["loginForm"]["password"].value;
-            let captcha = document.forms["loginForm"]["captcha"].value;
+            let uid = escapeHtml(document.forms["loginForm"]["username"].value);
+            let password = escapeHtml(document.forms["loginForm"]["password"].value);
+            let captcha = escapeHtml(document.forms["loginForm"]["captcha"].value);
+
+            function escapeHtml(unsafe) {
+                return unsafe
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;");
+            }
 
             if (uid === "" || password === "" || captcha === "") {
                 alert("请填写所有字段");
