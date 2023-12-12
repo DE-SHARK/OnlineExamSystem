@@ -1,4 +1,4 @@
-package me.xizhehong.Servlet;
+package me.xizhehong.controller;
 
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
