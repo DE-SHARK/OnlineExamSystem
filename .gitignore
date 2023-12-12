@@ -40,3 +40,5 @@ build/
 ### User ###
 /src/test/java/*
 !/src/test/java/demoTest.java
+out/artifacts/OnlineExamSystem_Web_exploded/*
+!out/artifacts/OnlineExamSystem_Web_exploded/images
