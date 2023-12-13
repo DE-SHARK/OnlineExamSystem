@@ -16,7 +16,7 @@
 <p style="color: red;"><%= message %></p>
 <%    }    %>
 
-<form action="LoginServlet" method="post">
+<form action="xizhehong/LoginServlet" method="post">
     <table>
         <tr>
             <td>用户</td>

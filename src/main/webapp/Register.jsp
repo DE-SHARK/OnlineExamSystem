@@ -33,7 +33,7 @@
 <p style="color: red;"><%= error %></p>
 <%    }    %>
 
-<form action="RegisterServlet" method="post">
+<form action="xizhehong/RegisterServlet" method="post">
     <table>
         <tr>
             <td>用户</td>

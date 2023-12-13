@@ -10,10 +10,9 @@ import me.deshark.dao.UserDao;
 import me.deshark.dao.impl.UserDaoImpl;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/UserListServlet")
+@WebServlet("/deshark/UserListServlet")
 public class UserListServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

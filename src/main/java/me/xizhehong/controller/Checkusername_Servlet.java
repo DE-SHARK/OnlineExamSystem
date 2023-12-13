@@ -11,7 +11,7 @@ import me.xizhehong.Service.RegisterService_impl;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/Checkusername")
+@WebServlet("/xizhehong/Checkusername")
 public class Checkusername_Servlet extends HttpServlet {
 
     @Override

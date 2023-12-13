@@ -11,7 +11,7 @@ import me.xizhehong.Service.UserMangeService_impl;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/UserMangeServlet")
+@WebServlet("/xizhehong/UserMangeServlet")
 public class UserMangeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

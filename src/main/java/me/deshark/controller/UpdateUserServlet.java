@@ -10,14 +10,13 @@ import jakarta.servlet.http.Part;
 import me.deshark.bean.UserBean;
 import me.deshark.dao.UserDao;
 import me.deshark.dao.impl.UserDaoImpl;
-import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.UUID;
 
-@WebServlet("/UpdateUserServlet")
+@WebServlet("/deshark/UpdateUserServlet")
 @MultipartConfig
 public class UpdateUserServlet extends HttpServlet {
 

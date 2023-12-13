@@ -5,17 +5,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import me.deshark.bean.UserBean;
-import me.deshark.dao.UserDao;
-import me.deshark.dao.impl.UserDaoImpl;
 import me.deshark.service.AuthenticationService;
 import me.deshark.service.impl.AuthenticationServiceImpl;
-import org.mindrot.jbcrypt.BCrypt;
 
-import javax.swing.text.AttributeSet;
 import java.io.IOException;
 
-@WebServlet(name = "LoginServlet", urlPatterns = "/LoginServlet")
+@WebServlet(name = "LoginServlet", urlPatterns = "/deshark/LoginServlet")
 public class LoginServlet extends HttpServlet {
 
     private final AuthenticationService authService = new AuthenticationServiceImpl();

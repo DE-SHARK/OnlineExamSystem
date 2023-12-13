@@ -1,5 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="Bean.Student" %>
+<%@ page import="me.xizhehong.Bean.Student" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>

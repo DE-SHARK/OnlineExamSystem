@@ -13,7 +13,7 @@ import me.deshark.dao.impl.UserDaoImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/UserSearchServlet")
+@WebServlet("/deshark/UserSearchServlet")
 public class UserSearchServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {

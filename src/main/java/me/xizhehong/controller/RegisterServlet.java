@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
-@WebServlet("/RegisterServlet")
+@WebServlet("/xizhehong/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 
     @Override

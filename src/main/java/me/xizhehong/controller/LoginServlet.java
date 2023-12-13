@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
-@WebServlet("/LoginServlet")
+@WebServlet("/xizhehong/LoginServlet")
 public class LoginServlet extends HttpServlet {
     public LoginServlet() {
         super();

@@ -13,7 +13,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Random;
 
-@WebServlet("/AuthCode")
+@WebServlet("/xizhehong/AuthCode")
 public class AuthCode extends HttpServlet {
     public AuthCode() {
         super();

@@ -1,7 +1,5 @@
 package me.deshark.bean;
 
-import me.deshark.dao.UserDao;
-
 public class UserBean {
 
     public String toString() {

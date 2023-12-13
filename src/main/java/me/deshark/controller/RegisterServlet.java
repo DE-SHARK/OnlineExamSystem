@@ -12,7 +12,7 @@ import java.io.IOException;
 
 import static me.deshark.controller.CheckUsernameServlet.isUsernameAvailable;
 
-@WebServlet(name = "RegisterServlet", urlPatterns = "/RegisterServlet")
+@WebServlet(name = "RegisterServlet", urlPatterns = "/deshark/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 
     @Override
