@@ -36,8 +36,8 @@
                 </td>
             </tr>
             <tr>
-                <td width="70px"><img src="image/UserNameIcon.png" width="20px" height="20px"><span>用户名：</span></td>
-                <td><input id="username" type="text" name="username"></td>
+                <td width="70px"><img src="image/UserNameIcon.png" width="20px" height="20px"><span>学号：</span></td>
+                <td><input id="uid" type="text" name="uid"></td>
             </tr>
             <tr>
                 <td><img src="image/UserPasswordIcon.png" width="20px"
