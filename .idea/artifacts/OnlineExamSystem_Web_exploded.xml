@@ -27,6 +27,7 @@
           <element id="library" level="project" name="Maven: com.github.virtuald:curvesapi:1.08" />
           <element id="library" level="project" name="Maven: org.apache.commons:commons-collections4:4.4" />
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.22.0" />
+          <element id="library" level="project" name="Maven: org.mindrot:jbcrypt:0.4" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="OnlineExamSystem/web/Web" />

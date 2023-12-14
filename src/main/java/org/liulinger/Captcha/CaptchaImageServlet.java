@@ -1,4 +1,4 @@
-package me.deshark.Captcha;
+package org.liulinger.Captcha;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -10,7 +10,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-@WebServlet(name = "CaptchaImageServlet", urlPatterns = "/deshark/CaptchaImageServlet")
+@WebServlet(name = "CaptchaImageServlet", urlPatterns = "/liulinger/CaptchaImageServlet")
 public class CaptchaImageServlet extends HttpServlet {
 
     private static final int IMAGE_WIDTH = 150;

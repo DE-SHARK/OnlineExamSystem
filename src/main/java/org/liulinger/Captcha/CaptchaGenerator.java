@@ -1,4 +1,4 @@
-package me.deshark.Captcha;
+package org.liulinger.Captcha;
 
 import java.util.Random;
 
