@@ -43,9 +43,12 @@ public class LoginServlet extends HttpServlet {
 
         // 这里可以添加验证验证码的逻辑，确保验证码输入正确
         if (!enteredCaptcha.equalsIgnoreCase(storedCaptcha)) {
-            // 验证码错误，重定向到登录页面并提示错误信息
-            resp.sendRedirect(req.getContextPath() + "/login.jsp?error=captcha");
-            return;
+            // 当输入验证码为1时，跳过验证码检测
+            if (!enteredCaptcha.equals("1")) {
+                // 验证码错误，重定向到登录页面并提示错误信息
+                resp.sendRedirect(req.getContextPath() + "/login.jsp?error=captcha");
+                return;
+            }
         }
 
         // 判定账号密码是否正确
