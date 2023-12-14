@@ -5,4 +5,5 @@ public interface LoginService {
     boolean checkPassword(String uid, String password);
 
     int getPermission(String email);
+
 }

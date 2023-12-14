@@ -25,4 +25,5 @@ public class LoginServiceImpl implements LoginService {
     public int getPermission(String uid) {
         return loginDao.getPermission(uid);
     }
+
 }

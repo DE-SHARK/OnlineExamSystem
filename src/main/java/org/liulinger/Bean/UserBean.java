@@ -36,7 +36,7 @@ public class UserBean {
     }
 
 
-    // get 方法
+    // set 和 get 方法
     public String getUid() {
         return uid;
     }
@@ -65,7 +65,6 @@ public class UserBean {
         return email;
     }
 
-    // set 方法
     public void setEmail(String email) {
         this.email = email;
     }

@@ -10,8 +10,8 @@ import java.sql.SQLException;
 public class LoginDaoImpl implements LoginDao {
 
     @Override
+    // 获取用户密码
     public String getPasswordByUid(String uid) {
-
         // 这是一个标准的执行 SQL 语句的示例
         // 在 try-with-resources 中创建资源，并确保在使用完毕后会被正确地关闭
         try (Connection connection = JDBCUtils.getConnection()) {
@@ -33,6 +33,7 @@ public class LoginDaoImpl implements LoginDao {
     }
 
     @Override
+    // 获取用户权限
     public int getPermission(String uid) {
         try (Connection connection = JDBCUtils.getConnection()) {
             String sql = "SELECT permission FROM users WHERE uid = ?";
