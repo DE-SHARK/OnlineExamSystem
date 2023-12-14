@@ -15,7 +15,7 @@ import org.liulinger.Service.LoginServiceImpl;
 
 import java.io.IOException;
 
-@WebServlet(name = "LoginServ", urlPatterns = "/liulinger/LoginServlet")
+@WebServlet(name = "LoginServ", urlPatterns = "/LoginServlet")
 public class LoginServlet extends HttpServlet {
 
     private LoginService loginService;

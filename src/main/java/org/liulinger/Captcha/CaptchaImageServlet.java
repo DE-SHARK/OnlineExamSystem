@@ -10,7 +10,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-@WebServlet(name = "CaptchaImageServlet", urlPatterns = "/liulinger/CaptchaImageServlet")
+@WebServlet(name = "CaptchaImageServlet", urlPatterns = "/CaptchaImageServlet")
 public class CaptchaImageServlet extends HttpServlet {
 
     private static final int IMAGE_WIDTH = 150;

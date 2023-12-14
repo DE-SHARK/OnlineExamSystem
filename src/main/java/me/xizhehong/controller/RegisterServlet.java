@@ -39,9 +39,9 @@ public class RegisterServlet extends HttpServlet {
             String hashedPassword = BCrypt.hashpw(password, salt);
             //写入数据库
             new RegisterService_impl().Register(username, hashedPassword,"0");
-//            resp.sendRedirect("Login.jsp?error=注册成功");
+//            resp.sendRedirect("login.jsp?error=注册成功");
             String encodedMessage = URLEncoder.encode(" "+answer, StandardCharsets.UTF_8.toString());
-            resp.sendRedirect("Login.jsp?error="+encodedMessage);
+            resp.sendRedirect("login.jsp?error="+encodedMessage);
         }
     }
 }

@@ -10,7 +10,7 @@
         var message = '<%=request.getParameter("message")%>';
         if (message == 'fail') {
             alert('用户名或密码错误！');
-            window.location.href = 'Login.jsp';
+            window.location.href = 'login.jsp';
         }
     }
 
@@ -28,7 +28,7 @@
 <body onload="onLoad()">
 <div class="title">在线考试系统</div>
 <div class="main">
-    <form action="/xizhehong/LoginServlet" method="post" name="form" onsubmit="return onSubmit()">
+    <form action="LoginServlet" method="post" name="form" onsubmit="return onSubmit()">
         <table>
             <tr>
                 <td colspan="2">
@@ -43,6 +43,13 @@
                 <td><img src="image/UserPasswordIcon.png" width="20px"
                          height="20px"><span>密&nbsp&nbsp&nbsp&nbsp码：</span></td>
                 <td><input id="password" type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td>
+                    验证码：
+                    <input type="text" id="captcha" name="captcha" required>
+                    <img src="CaptchaImageServlet" alt="Captcha Image">
+                </td>
             </tr>
             <tr>
                 <td colspan="2"><input class="radio" type="radio" checked name="role" value="管理者">管理者<input

@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
         User user = loginServiceImpl.login(username, password);
 
         if (user == null) {
-            response.sendRedirect("Login.jsp?error=" + URLEncoder.encode("用户名或密码错误", "UTF-8"));
+            response.sendRedirect("login.jsp?error=" + URLEncoder.encode("用户名或密码错误", "UTF-8"));
         }
         else {
 //            String true_yanzhengma = (String) request.getSession().getAttribute("yanzhengma");
@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
 //            request.getRequestDispatcher("/User.jsp").forward(request,response);
 
 //            else {
-//                response.sendRedirect("Login.jsp?error=" + URLEncoder.encode("验证码错误", "UTF-8"));
+//                response.sendRedirect("login.jsp?error=" + URLEncoder.encode("验证码错误", "UTF-8"));
 //            }
 
 //        }
