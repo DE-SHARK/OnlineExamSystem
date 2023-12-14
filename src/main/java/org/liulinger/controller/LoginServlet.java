@@ -58,13 +58,19 @@ public class LoginServlet extends HttpServlet {
             if (permission == 1) {
                 // 为用户 session 设置登录属性
                 session.setAttribute("userType", true);
-                // 重定向到普通用户页面
-                resp.sendRedirect(req.getContextPath() + "/userPage.jsp");
-            } else if (permission == 3) {
-                // 为用户 session 设置登录属性
+                // 重定向到学生用户页面
+                resp.sendRedirect(req.getContextPath() + "/studentPage.jsp");
+
+            } else if (permission == 2) {
                 session.setAttribute("userType", true);
-                // 重定向到管理员页面
+                // 重定向到教师用户页面
+                resp.sendRedirect(req.getContextPath() + "/teacherPage.jsp");
+
+            } else if (permission == 3) {
+                session.setAttribute("userType", true);
+                // 重定向到管理员用户页面
                 resp.sendRedirect(req.getContextPath() + "/adminPage.jsp");
+
             }
         } else {
             // 密码不匹配，登录失败
