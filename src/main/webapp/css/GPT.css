@@ -1,0 +1,97 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    background-image: url("../image/Background.jpg");
+    background-repeat: round;
+    margin: 0px;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+/* Title styles */
+.title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 20px 0;
+}
+
+/* Main container styles */
+.main {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styles */
+form {
+    margin-top: 20px;
+}
+
+.info {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+}
+
+td {
+    padding: 10px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="submit"],
+input[type="reset"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+.button {
+    width: auto;
+    padding: 8px 20px;
+    margin-right: 10px;
+}
+
+/* Footer styles */
+.footer {
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    margin-top: 30px;
+}
+
+/* Responsive styles */
+@media (max-width: 480px) {
+    .main {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .info {
+        font-size: 16px;
+    }
+}
