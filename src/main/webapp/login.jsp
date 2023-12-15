@@ -24,6 +24,10 @@
             return true;
         }
     }
+
+    function redirectToRegister(){
+        window.location.href="Register.jsp";
+    }
 </script>
 <body onload="onLoad()">
 <div class="title">在线考试系统</div>
@@ -36,7 +40,7 @@
                 </td>
             </tr>
             <tr>
-                <td width="70px"><img src="image/UserNameIcon.png" width="20px" height="20px"><span>学号：</span></td>
+                <td width="70px"><img src="image/UserNameIcon.png" width="20px" height="20px"><span>学&nbsp&nbsp&nbsp&nbsp号：</span></td>
                 <td><input id="uid" type="text" name="uid"></td>
             </tr>
             <tr>
@@ -45,8 +49,8 @@
                 <td><input id="password" type="password" name="password"></td>
             </tr>
             <tr>
-                <td>
-                    验证码：
+                <td colspan="3">
+                    验&nbsp证&nbsp码：
                     <input type="text" id="captcha" name="captcha" required>
                     <img src="CaptchaImageServlet" alt="Captcha Image">
                 </td>
@@ -58,14 +62,14 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2"><input class="button" type="submit" value="登录" name="submit"><input class="button"
-                                                                                                      type="reset"
-                                                                                                      name="reset"
-                                                                                                      value="重置"></td>
+                <td colspan="3"><input class="button" type="submit" value="登录" name="submit">
+                    <input class="button" type="reset" name="reset" value="重置">
+                    <input class="button" value="注册"  name="register" onclick="redirectToRegister()">
+                </td>
             </tr>
         </table>
     </form>
 </div>
-<div class="footer">Copyright&nbsp;&copy;&nbsp;lollipop</div>
+<div class="footer">Copyright&nbsp;&copy;&nbsp;602</div>
 </body>
 </html>

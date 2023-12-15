@@ -1,18 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
-  User: desha
-  Date: 2023/12/14
-  Time: 16:48
+  User: 13159
+  Date: 2023/12/15
+  Time: 10:14
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Teacher Profile</title>
+    <title>Title</title>
 </head>
 <body>
-<h1>Welcome, Teacher!</h1>
-<!-- Add teacher-specific content here -->
+
 </body>
 </html>
