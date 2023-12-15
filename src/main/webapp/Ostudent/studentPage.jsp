@@ -13,7 +13,7 @@
 <div class="centerContainer">
     <div class="leftBar">
         <ul>
-            <li><a style="background-color: #c8c8dc" href="StudentIndex.jsp">首页导航</a></li>
+            <li><a style="background-color: #c8c8dc" href="studentPage.jsp">首页导航</a></li>
             <li class="negative"><a href="MyExam.jsp">我的考试</a></li>
             <li class="negative"><a href="MyInformation.jsp">我的信息</a></li>
         </ul>
