@@ -59,17 +59,17 @@ public class LoginServlet extends HttpServlet {
                 // 为用户 session 设置登录属性
                 session.setAttribute("userType", true);
                 // 重定向到学生用户页面
-                resp.sendRedirect(req.getContextPath() + "/studentPage.jsp");
+                resp.sendRedirect(req.getContextPath() + "/student/studentPage.jsp");
 
             } else if (permission == 2) {
                 session.setAttribute("userType", true);
                 // 重定向到教师用户页面
-                resp.sendRedirect(req.getContextPath() + "/teacherPage.jsp");
+                resp.sendRedirect(req.getContextPath() + "/teacher/teacherPage.jsp");
 
             } else if (permission == 3) {
                 session.setAttribute("userType", true);
                 // 重定向到管理员用户页面
-                resp.sendRedirect(req.getContextPath() + "/adminPage.jsp");
+                resp.sendRedirect(req.getContextPath() + "/admin/adminPage.jsp");
 
             }
         } else {
