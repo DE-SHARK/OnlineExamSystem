@@ -1,13 +1,14 @@
-package org.liulinger.Dao;
+package org.liulinger.Dao.Impl;
 
 import org.liulinger.Bean.ExamBean;
+import org.liulinger.Dao.ExamListDao;
 import org.liulinger.Utils.JDBCUtils;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExamListDaoImpl implements ExamListDao{
+public class ExamListDaoImpl implements ExamListDao {
 
 
     @Override

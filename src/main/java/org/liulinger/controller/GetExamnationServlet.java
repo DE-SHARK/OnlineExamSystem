@@ -6,8 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.liulinger.Service.GetExamService;
-import org.liulinger.Service.GetExamServiceImpl;
+import org.liulinger.Service.Impl.GetExamServiceImpl;
 
 import java.io.IOException;
 

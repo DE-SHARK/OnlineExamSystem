@@ -1,10 +1,12 @@
-package org.liulinger.Service;
+package org.liulinger.Service.Impl;
+
+import org.liulinger.Service.GetExamService;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class GetExamServiceImpl implements GetExamService{
+public class GetExamServiceImpl implements GetExamService {
     public GetExamServiceImpl() {
     }
     @Override

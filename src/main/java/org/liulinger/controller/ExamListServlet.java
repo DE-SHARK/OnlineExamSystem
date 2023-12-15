@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.liulinger.Bean.ExamBean;
 import org.liulinger.Dao.ExamListDao;
-import org.liulinger.Dao.ExamListDaoImpl;
+import org.liulinger.Dao.Impl.ExamListDaoImpl;
 import org.liulinger.Service.ExamListService;
 import org.liulinger.Service.ExamListServiceImpl;
 

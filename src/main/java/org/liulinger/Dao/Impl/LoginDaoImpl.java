@@ -1,5 +1,6 @@
-package org.liulinger.Dao;
+package org.liulinger.Dao.Impl;
 
+import org.liulinger.Dao.LoginDao;
 import org.liulinger.Utils.JDBCUtils ;
 
 import java.sql.Connection;
