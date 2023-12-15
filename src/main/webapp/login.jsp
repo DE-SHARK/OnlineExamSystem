@@ -56,15 +56,8 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2"><input class="radio" type="radio" checked name="role" value="管理者">管理者<input
-                        class="radio" type="radio" name="role" value="教师">教师<input class="radio" type="radio"
-                                                                                       name="role" value="考生">考生
-                </td>
-            </tr>
-            <tr>
                 <td colspan="3"><input class="button" type="submit" value="登录" name="submit">
                     <input class="button" type="reset" name="reset" value="重置">
-                    <input class="button" value="注册"  name="register" onclick="redirectToRegister()">
                 </td>
             </tr>
         </table>
