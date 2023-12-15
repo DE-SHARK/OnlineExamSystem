@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>注册界面</title>
-    <script src="./js/jquery-1.8.0.min.js"></script>
+<%--    <script src="./js/jquery-1.8.0.min.js"></script>--%>
     <script type="text/javascript">
         $(function(){
             $("#username").blur(function(){

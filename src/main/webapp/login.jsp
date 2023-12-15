@@ -24,6 +24,10 @@
             return true;
         }
     }
+
+    function redirectToRegister(){
+        window.location.href="Register.jsp";
+    }
 </script>
 <body onload="onLoad()">
 <div class="title">在线考试系统</div>
@@ -58,10 +62,10 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2"><input class="button" type="submit" value="登录" name="submit"><input class="button"
-                                                                                                      type="reset"
-                                                                                                      name="reset"
-                                                                                                      value="重置"></td>
+                <td colspan="3"><input class="button" type="submit" value="登录" name="submit">
+                    <input class="button" type="reset" name="reset" value="重置">
+                    <input class="button" value="注册"  name="register" onclick="redirectToRegister()">
+                </td>
             </tr>
         </table>
     </form>
