@@ -12,7 +12,7 @@ import org.liulinger.Bean.ExamBean;
 import org.liulinger.Dao.ExamListDao;
 import org.liulinger.Dao.Impl.ExamListDaoImpl;
 import org.liulinger.Service.ExamListService;
-import org.liulinger.Service.ExamListServiceImpl;
+import org.liulinger.Service.Impl.ExamListServiceImpl;
 
 import java.io.IOException;
 import java.util.List;

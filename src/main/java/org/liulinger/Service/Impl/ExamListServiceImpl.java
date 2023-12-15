@@ -1,11 +1,12 @@
-package org.liulinger.Service;
+package org.liulinger.Service.Impl;
 
 import org.liulinger.Bean.ExamBean;
 import org.liulinger.Dao.ExamListDao;
+import org.liulinger.Service.ExamListService;
 
 import java.util.List;
 
-public class ExamListServiceImpl implements ExamListService{
+public class ExamListServiceImpl implements ExamListService {
     private final ExamListDao examListDao;
 
     public ExamListServiceImpl(ExamListDao examListDao) {
