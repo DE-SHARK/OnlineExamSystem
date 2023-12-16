@@ -20,23 +20,14 @@ public class ExamListDaoImpl implements ExamListDao {
         int start = (pageNo - 1) * pageSize;
 
         try (Connection connection = JDBCUtils.getConnection()) {
-//            "SELECT exams.id AS exam_id, courses.name AS exam_name, exam_date, time_limits, score " +
-//                    "FROM users " +
-//                    "JOIN studentClass ON studentClass.stu_id = users.uid " +
-//                    "JOIN exams ON studentClass.class_id = exams.class_id " +
-//                    "JOIN grades ON exams.id = grades.exam_id ANd uid = grades.stu_id " +
-//                    "JOIN courses ON exams.course_id = courses.id " +
-//                    "WHERE uid = ? " +
-//                    "LIMIT ?, ?";
             String sql = "SELECT exams.id AS exam_id, courses.name AS exam_name, exam_date, time_limits, score " +
                     "FROM users " +
-                    "JOIN studentClass ON studentClass.stu_id = users.uid " +
-                    "JOIN exams ON studentClass.class_id = exams.class_id " +
-                    "JOIN grades ON exams.id = grades.exam_id AND users.uid = grades.stu_id " +
-                    "JOIN courses ON exams.course_id = courses.id " +
+                    "LEFT JOIN studentClass ON studentClass.stu_id = users.uid " +
+                    "LEFT JOIN exams ON studentClass.class_id = exams.class_id " +
+                    "LEFT JOIN grades ON exams.id = grades.exam_id AND users.uid = grades.stu_id " +
+                    "LEFT JOIN courses ON exams.course_id = courses.id " +
                     "WHERE users.uid = ? " +
                     "LIMIT ?, ?";
-
 
             try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
                 preparedStatement.setString(1, stu_id);
