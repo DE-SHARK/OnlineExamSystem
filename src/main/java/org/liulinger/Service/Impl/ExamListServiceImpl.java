@@ -22,4 +22,9 @@ public class ExamListServiceImpl implements ExamListService {
     public List<ExamBean> getUsersPaginated(int pageNo, int pageSize, String stu_id) {
         return examListDao.getUsersPaginated(pageNo, pageSize, stu_id);
     }
+
+    @Override
+    public String getUsername(String stu_id) {
+        return examListDao.getUsername(stu_id);
+    }
 }
