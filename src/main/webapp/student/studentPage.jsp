@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,7 +13,7 @@
 <div class="centerContainer">
     <div class="leftBar">
         <ul>
-            <li><a style="background-color: #c8c8dc" href="studentPage.jsp">我的考试</a></li>
+            <li><a style="background-color: #c8c8dc" href="../ExamListServlet?stu_id=${param.stu_id}">我的考试</a></li>
             <li class="negative"><a href="studentInformation.jsp">我的信息</a></li>
         </ul>
     </div>

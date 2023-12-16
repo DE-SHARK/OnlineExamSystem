@@ -17,8 +17,8 @@ public class NameXlsGen {
 		final String filename = "demo.xls";
 		final int genTotal = 2500;
 	    final String[] headers = {
-    		"姓名", 
-    		"性别", 
+    		"姓名",
+    		"性别",
 	    };
 
         // 获取ServletContext对象
@@ -28,7 +28,7 @@ public class NameXlsGen {
 		Workbook wb = new HSSFWorkbook();
         try {
             FileOutputStream fileOut = new FileOutputStream(filename);
-            
+
             Sheet sheet = wb.createSheet("Chinese Name Gen");
             Row row = sheet.createRow(0);
             for (int i = 0; i < headers.length; i++) {

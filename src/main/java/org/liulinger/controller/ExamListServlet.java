@@ -41,10 +41,14 @@ public class ExamListServlet extends HttpServlet {
         List<ExamBean> list = examListService.getUsersPaginated(page, recordsPerPage, stu_id);
         int noOfRecords = examListService.getNumberOfExam(stu_id);
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+        if (noOfPages == 0){
+            noOfPages = 1;
+        }
         request.setAttribute("examList", list);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);
-        RequestDispatcher view = request.getRequestDispatcher("/studentPage.jsp?stu_id="+stu_id);
+        request.setAttribute("stu_id", stu_id);
+        RequestDispatcher view = request.getRequestDispatcher("/student/myExam.jsp");
         view.forward(request, response);
     }
 }

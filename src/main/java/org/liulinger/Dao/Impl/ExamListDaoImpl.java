@@ -19,22 +19,30 @@ public class ExamListDaoImpl implements ExamListDao {
         }
         int start = (pageNo - 1) * pageSize;
 
-
         try (Connection connection = JDBCUtils.getConnection()) {
-            String sql ="SELECT exams.id AS exam_id, courses.name AS exam_name, exam_date, time_limits, score " +
+//            "SELECT exams.id AS exam_id, courses.name AS exam_name, exam_date, time_limits, score " +
+//                    "FROM users " +
+//                    "JOIN studentClass ON studentClass.stu_id = users.uid " +
+//                    "JOIN exams ON studentClass.class_id = exams.class_id " +
+//                    "JOIN grades ON exams.id = grades.exam_id ANd uid = grades.stu_id " +
+//                    "JOIN courses ON exams.course_id = courses.id " +
+//                    "WHERE uid = ? " +
+//                    "LIMIT ?, ?";
+            String sql = "SELECT exams.id AS exam_id, courses.name AS exam_name, exam_date, time_limits, score " +
                     "FROM users " +
                     "JOIN studentClass ON studentClass.stu_id = users.uid " +
                     "JOIN exams ON studentClass.class_id = exams.class_id " +
-                    "JOIN grades ON exams.id = grades.exam_id ANd uid = grades.stu_id " +
+                    "JOIN grades ON exams.id = grades.exam_id AND users.uid = grades.stu_id " +
                     "JOIN courses ON exams.course_id = courses.id " +
-                    "WHERE uid = ? " +
+                    "WHERE users.uid = ? " +
                     "LIMIT ?, ?";
+
 
             try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
                 preparedStatement.setString(1, stu_id);
                 preparedStatement.setInt(2, start);
                 preparedStatement.setInt(3, pageSize);
-
+                System.out.println("looking for");
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
                     while (resultSet.next()){
                         int exam_id = resultSet.getInt("exam_id");
@@ -42,6 +50,7 @@ public class ExamListDaoImpl implements ExamListDao {
                         Timestamp exam_date = resultSet.getTimestamp("exam_date");
                         int time_limits = resultSet.getInt("time_limits");
                         double score = resultSet.getDouble("score");
+                        System.out.println(exam_id);
                         ExamBean exam = new ExamBean(stu_id, exam_id, exam_name, exam_date, time_limits, score);
                         examList.add(exam);
                     }
