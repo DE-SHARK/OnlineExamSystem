@@ -34,19 +34,19 @@ public class ExamListServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int page = 1;
-        int recordsPerPage = 5;
+        int recordsPerPage = 3;
         String stu_id = request.getParameter("stu_id");
         if(request.getParameter("page") != null)
             page = Integer.parseInt(request.getParameter("page"));
         List<ExamBean> list = examListService.getUsersPaginated(page, recordsPerPage, stu_id);
         int noOfRecords = examListService.getNumberOfExam(stu_id);
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
-        if (noOfPages == 0){
-            noOfPages = 1;
-        }
+        String username = examListService.getUsername(stu_id);
+        System.out.println(username);
         request.setAttribute("examList", list);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);
+        request.setAttribute("username", username);
         request.setAttribute("stu_id", stu_id);
         RequestDispatcher view = request.getRequestDispatcher("/student/myExam.jsp");
         view.forward(request, response);

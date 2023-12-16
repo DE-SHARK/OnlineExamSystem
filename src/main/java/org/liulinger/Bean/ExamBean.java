@@ -9,17 +9,19 @@ public class ExamBean {
     private Timestamp exam_date;
     private int time_limits;
     private double score;
+    private int status;
 
     public ExamBean() {
     }
 
-    public ExamBean(String stu_id, int exam_id, String exam_name, Timestamp exam_date, int time_limits, double score) {
+    public ExamBean(String stu_id, int exam_id, String exam_name, Timestamp exam_date, int time_limits, double score, int status) {
         this.stu_id = stu_id;
         this.exam_id = exam_id;
         this.exam_name = exam_name;
         this.exam_date = exam_date;
         this.time_limits = time_limits;
         this.score = score;
+        this.status = status;
     }
 
     public String getStu_id() {
@@ -68,5 +70,13 @@ public class ExamBean {
 
     public void setScore(double score) {
         this.score = score;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }
