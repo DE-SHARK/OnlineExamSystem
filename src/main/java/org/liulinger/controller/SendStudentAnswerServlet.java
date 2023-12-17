@@ -32,15 +32,14 @@ public class SendStudentAnswerServlet extends HttpServlet {
         }
 
         try {
-            //实际时需要使用el表达式从session中读取url
-            String filePath = "C:/Study_Information/git本地仓库/OnlineExamSystem/math_exam.json";
+            String filePath = (String) request.getSession().getAttribute("testpaper_url");
             GetExamService getExamService = new GetExamServiceImpl();
             String exam = getExamService.GetExam(filePath);
             JSONParser jsonParser = new JSONParser();
             org.json.simple.JSONObject jsonObject = (org.json.simple.JSONObject) jsonParser.parse(exam);
             // 将答案json存入原json中
-//            jsonObject.put("${stu_id}", answersObject);//暂时将stu_id写成具体的值
-            jsonObject.put("2100", answersObject);
+            String stu_id = (String) request.getSession().getAttribute("stu_id");
+            jsonObject.put(stu_id, answersObject);
             //将合并后的json写回原地址
             FileWriter writer = new FileWriter(filePath);
             writer.write(jsonObject.toString());
@@ -48,6 +47,7 @@ public class SendStudentAnswerServlet extends HttpServlet {
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
+
     }
 }
 

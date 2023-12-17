@@ -6,7 +6,9 @@
     <script>
         $(function() {
             $(document).ready(function () {
-                $.post("/GetExamnationServlet", {"examurl": "C:/Study_Information/git本地仓库/OnlineExamSystem/math_exam.json"}, function (rs) {
+                alert("sda")
+                var url = "${sessionScope.testpaper_url}"
+                $.post("/GetExamnationServlet", {"examurl": url}, function (rs) {
                     var questions = rs.questions;
                     $("#questionsLength").val(questions.length);
 

@@ -13,13 +13,17 @@
     <title>Title</title>
 </head>
 <body>
+    <div>
+        <c:if test="${requestScope.absent == 1}">
+            <h1>缺考</h1>
+        </c:if>
+        <c:if test="${requestScope.absent == 0}">
+            <h1>考试未开始</h1>
+        </c:if>
+        <p>姓名：${sessionScope.username}</p>
+        <p>考试时间：${requestScope.examStartTime}&nbsp;至&nbsp;${requestScope.examEndTime}</p>
+    </div>
 
-    <c:if test="${requestScope.absent == 1}">
-      <h1>缺考</h1>
-    </c:if>
-    <c:if test="${requestScope.absent == 0}">
-      <h1>考试未开始</h1>
-    </c:if>
 
 </body>
 </html>

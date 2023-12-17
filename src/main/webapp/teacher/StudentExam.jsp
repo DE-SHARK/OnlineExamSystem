@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>改卷</title>
-    <script src="./js/jquery-1.8.0.min.js"></script>
+    <script src="../js/jquery-1.8.0.min.js"></script>
     <script>
         $(function (){
             $(document).ready(function (){
@@ -18,7 +18,6 @@
                 $.post("/StudentExamServlet","exam_url=C:/Study_Information/git本地仓库/OnlineExamSystem/math_exam.json",function (rs){
                     var questions = rs.questions;
                     var answers =rs["2100"];
-
 
                     for (var i = 0; i < questions.length; i++) {
                         var topicValue = questions[i].topic;
