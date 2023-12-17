@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/GiveGradeServlet")
+@WebServlet("/teacher/GiveGradeServlet")
 public class GiveGradeServlet extends HttpServlet {
 
     @Override

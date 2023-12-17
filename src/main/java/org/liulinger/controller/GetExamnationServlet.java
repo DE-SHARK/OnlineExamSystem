@@ -10,7 +10,7 @@ import org.liulinger.Service.Impl.GetExamServiceImpl;
 
 import java.io.IOException;
 
-@WebServlet("/student/GetExamnationServlet")
+@WebServlet("/GetExamnationServlet")
 public class GetExamnationServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
