@@ -22,7 +22,6 @@ public class SendStudentAnswerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, IOException {
         int questionsLength = Integer.parseInt(request.getParameter("questionsLength"));
-
         //创建一个json对象存储单选框的值
         org.json.simple.JSONObject answersObject = new org.json.simple.JSONObject();
 
@@ -32,8 +31,8 @@ public class SendStudentAnswerServlet extends HttpServlet {
             answersObject.put("answer" + i, selectedValue);
         }
 
-        //实际时需要使用el表达式从session中读取url
         try {
+            //实际时需要使用el表达式从session中读取url
             String filePath = "C:/Study_Information/git本地仓库/OnlineExamSystem/math_exam.json";
             GetExamService getExamService = new GetExamServiceImpl();
             String exam = getExamService.GetExam(filePath);
