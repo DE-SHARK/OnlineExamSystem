@@ -5,17 +5,16 @@ import org.liulinger.Dao.StudentInformationDao;
 import org.liulinger.Service.StudentInformationService;
 
 import java.util.List;
-public class StudentInformationServiceImpl implements StudentInformationService{
 
-    private final StudentInformationDao studentInformationDao;
+public class StudentInformationServiceImpl implements StudentInformationService {
+    private  final StudentInformationDao studentInformationDao;
 
     public StudentInformationServiceImpl(StudentInformationDao studentInformationDao) {
         this.studentInformationDao = studentInformationDao;
     }
 
     @Override
-    public List<StudentInformationBean> getAllInformationByUid(String uid) {
-        return studentInformationDao.getAllInformationByUid(uid);
+    public List<StudentInformationBean> getStudentInformationByUid(String uid) {
+        return studentInformationDao.getStudentInformationByUid(uid);
     }
 }
-

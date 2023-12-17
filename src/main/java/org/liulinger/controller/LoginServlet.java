@@ -41,6 +41,12 @@ public class LoginServlet extends HttpServlet {
         HttpSession session = req.getSession();
         String storedCaptcha = (String) session.getAttribute("captcha");
 
+        // 将账号密码存储到session中
+        session.setAttribute("uid",uid);
+        session.setAttribute("password",password);
+
+
+
         // 这里可以添加验证验证码的逻辑，确保验证码输入正确
         if (!enteredCaptcha.equalsIgnoreCase(storedCaptcha)) {
             // 当输入验证码为1时，跳过验证码检测

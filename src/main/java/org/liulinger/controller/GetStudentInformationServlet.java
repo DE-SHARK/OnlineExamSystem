@@ -1,6 +1,5 @@
 package org.liulinger.controller;
 
-
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
@@ -9,6 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import org.liulinger.Bean.StudentInformationBean;
 import org.liulinger.Dao.Impl.StudentInformationDaoImpl;
 import org.liulinger.Dao.StudentInformationDao;
 import org.liulinger.Service.Impl.StudentInformationServiceImpl;
@@ -32,21 +32,26 @@ public class GetStudentInformationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        String uid = (String)session.getAttribute("uid");
 
-        //获取由uid得到的学生所有信息的表
-        List studentInformationList = studentInformationService.getAllInformationByUid(uid);
 
-        req.setAttribute("studentInformationList",studentInformationList);
+        String uid = (String) session.getAttribute("uid");
 
-        System.out.println(studentInformationList.get(0).toString());
+        if(uid!=null){
+            List<StudentInformationBean> list= studentInformationService.getStudentInformationByUid(uid);
+            req.setAttribute("list",list);
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("studentInformation.jsp");
-        dispatcher.forward(req,resp);
+            RequestDispatcher dispatcher = req.getRequestDispatcher("studentInformation.jsp");
+            dispatcher.forward(req, resp);
+        }
+        else{
+            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            resp.getWriter().write("Invalid request: uid is missing.");
+        }
+
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        doGet(req, resp);
+        super.doPost(req, resp);
     }
 }
