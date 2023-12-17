@@ -30,7 +30,12 @@ public class StudentInformationDaoImpl implements StudentInformationDao {
                     String resultEmail = resultSet.getString("email");
                     String resultUsername = resultSet.getString("username");
                     String resultSex = resultSet.getString("sex");
-                    String resultAvatar_url = resultSet.getString("avatar_url");
+
+                    String resultAvatar_url = "/image/v2.jpg";
+                    if(resultSet.getString("avatar_url") != null){
+                        resultAvatar_url = resultSet.getString("avatar_url");
+                    }
+//                    String resultAvatar_url = resultSet.getString("avatar_url");
 
                     StudentInformationBean stuInform = new StudentInformationBean(
                             resultUid,resultEmail,resultUsername,resultSex,resultAvatar_url
