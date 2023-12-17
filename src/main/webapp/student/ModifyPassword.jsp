@@ -5,14 +5,36 @@
   Time: 10:14
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Title</title>
+    <meta charset="UTF-8">
+    <title>密码修改</title>
+    <script>
+        <%-- 获取错误消息 --%>
+        var errorMessage = "${errorMessage}";
+
+        <%-- 检查是否存在错误消息 --%>
+        if (errorMessage) {
+            <%-- 弹出提示框 --%>
+            window.alert(errorMessage);
+        }
+    </script>
 </head>
 <body>
+<form method="post" action="ModifyPasswordServlet">
+    //1.进行原密码的比较
+    //2.修改密码
+    <label for="currentPassword">当前密码:</label>
+    <input type="password" id="currentPassword" name="currentPassword" required><br><br>
 
-//1.进行原密码的哈希比较
-//2.修改哈希密码
+    <label for="newPassword">新密码:</label>
+    <input type="password" id="newPassword" name="newPassword" required><br><br>
+
+    <input type="submit" value="修改密码">
+</form>
+
 </body>
 </html>
