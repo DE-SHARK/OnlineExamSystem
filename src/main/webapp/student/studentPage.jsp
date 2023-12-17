@@ -14,7 +14,7 @@
     <div class="leftBar">
         <ul>
             <li><a style="background-color: #c8c8dc" href="../ExamListServlet?stu_id=${param.stu_id}">我的考试</a></li>
-            <li class="negative"><a href="studentInformation.jsp">我的信息</a></li>
+            <li class="negative"><a href="GetStudentInformationServlet">我的信息</a></li>
         </ul>
     </div>
     <div class="main">
