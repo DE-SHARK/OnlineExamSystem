@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.liulinger.Bean.ExamBean;
 import org.liulinger.Dao.ExamListDao;
 import org.liulinger.Dao.Impl.ExamListDaoImpl;
@@ -35,19 +36,22 @@ public class ExamListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int page = 1;
         int recordsPerPage = 3;
-        String stu_id = request.getParameter("stu_id");
+        HttpSession session = request.getSession();
+        String stu_id =(String) session.getAttribute("stu_id");
         if(request.getParameter("page") != null)
             page = Integer.parseInt(request.getParameter("page"));
         List<ExamBean> list = examListService.getUsersPaginated(page, recordsPerPage, stu_id);
         int noOfRecords = examListService.getNumberOfExam(stu_id);
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
         String username = examListService.getUsername(stu_id);
+        System.out.println(stu_id);
         System.out.println(username);
+        System.out.println(noOfPages);
+        System.out.println(list);
         request.setAttribute("examList", list);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);
-        request.setAttribute("username", username);
-        request.setAttribute("stu_id", stu_id);
+        session.setAttribute("username", username);
         RequestDispatcher view = request.getRequestDispatcher("/student/myExam.jsp");
         view.forward(request, response);
     }

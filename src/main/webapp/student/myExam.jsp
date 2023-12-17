@@ -16,7 +16,7 @@
 
 <body>
     <div class="head">
-        <p>欢迎你，${username}</p>
+        <p>欢迎你，${sessionScope.username}</p>
     </div>
     <div class="head_tips">
         <p>退出或离开答题页面，答题计时不暂停，进入考试后请不要中途离开，以防超时系统自动收卷。</p>
@@ -33,7 +33,7 @@
                 <th>成绩</th>
                 <th>操作</th>
             </tr>
-            <c:forEach var="exam" items="${examList}" varStatus="loop">
+            <c:forEach var="exam" items="${requestScope.examList}" varStatus="loop">
                 <tr>
                     <td>${loop.index + 1}</td>
                     <td>${exam.exam_name}</td>
@@ -59,25 +59,25 @@
         </table>
         <!-- 分页控件 -->
         <div class="pagination-container">
-            <c:if test="${not empty noOfPages and not empty currentPage}">
-                <a href="?page=1&stu_id=${param.stu_id}&username=${param.username}">首页</a>
-                <c:if test="${currentPage > 1}">
-                    <a href="?page=${currentPage-1}&stu_id=${param.stu_id}&username=${param.username}">上一页</a>
+            <c:if test="${not empty requestScope.noOfPages and not empty requestScope.currentPage}">
+                <a href="?page=1">首页</a>
+                <c:if test="${requestScope.currentPage > 1}">
+                    <a href="?page=${requestScope.currentPage-1}">上一页</a>
                 </c:if>
-                <c:forEach var="i" begin="1" end="${noOfPages}">
+                <c:forEach var="i" begin="1" end="${requestScope.noOfPages}">
                     <c:choose>
-                        <c:when test="${i eq currentPage}">
+                        <c:when test="${i eq requestScope.currentPage}">
                             <b>${i}</b>
                         </c:when>
                         <c:otherwise>
-                            <a href="?page=${i}&stu_id=${param.stu_id}&username=${param.username}">${i}</a>
+                            <a href="?page=${i}">${i}</a>
                         </c:otherwise>
                     </c:choose>
                 </c:forEach>
-                <c:if test="${currentPage < noOfPages}">
-                    <a href="?page=${currentPage + 1}&stu_id=${param.stu_id}&username=${param.username}">下一页</a>
+                <c:if test="${requestScope.currentPage < requestScope.noOfPages}">
+                    <a href="?page=${requestScope.currentPage + 1}">下一页</a>
                 </c:if>
-                <a href="?page=${noOfPages}&stu_id=${param.stu_id}&username=${param.username}">末页</a>
+                <a href="?page=${requestScope.noOfPages}">末页</a>
             </c:if>
         </div>
 

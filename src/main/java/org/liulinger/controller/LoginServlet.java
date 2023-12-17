@@ -58,8 +58,9 @@ public class LoginServlet extends HttpServlet {
             if (permission == 1) {
                 // 为用户 session 设置登录属性
                 session.setAttribute("userType", true);
+                session.setAttribute("stu_id",uid);
                 // 重定向到学生用户页面
-                resp.sendRedirect(req.getContextPath() + "/student/studentPage.jsp?stu_id="+uid);
+                resp.sendRedirect(req.getContextPath() + "/student/studentPage.jsp");
 
             } else if (permission == 2) {
                 session.setAttribute("userType", true);
