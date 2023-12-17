@@ -37,7 +37,7 @@
                 <tr>
                     <td>${loop.index + 1}</td>
                     <td>${exam.exam_name}</td>
-                    <td>${exam.exam_date}至${exam.exam_end}</td>
+                    <td>${exam.exam_date}&nbsp;至&nbsp;${exam.exam_end}</td>
                     <td>${exam.time_limits}</td>
                     <c:if test="${exam.status == 0}">
                         <td>未完成</td>
@@ -52,15 +52,15 @@
                         <td>${exam.score}</td>
                     </c:if>
                     <td>
-                        <!-- 使用表单提交，将exam_date放在隐藏字段中 -->
                         <form action="ExamPageServlet" method="post">
                             <input type="hidden" name="exam_date" value="${exam.exam_date}">
                             <input type="hidden" name="exam_end" value="${exam.exam_end}">
                             <input type="hidden" name="exam_id" value="${exam.exam_id}">
                             <input type="hidden" name="status" value="${exam.status}">
+                            <input type="hidden" name="score" value="${exam.score}">
+                            <input type="hidden" name="testpaper_url" value="${exam.testpaper_url}">
                             <input type="submit" value="查看">
                         </form>
-<%--                        <a>查看</a>--%>
                     </td>
                 </tr>
             </c:forEach>

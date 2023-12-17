@@ -11,6 +11,12 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>考试完成</h1>
+    <div>
+        <h1>考试完成</h1>
+        <p>姓名：${sessionScope.username}</p>
+        <p>成绩：${requestScope.score}</p>
+        <p>考试时间：${requestScope.examStartTime}&nbsp;至&nbsp; ${requestScope.examEndTime}</p>
+    </div>
+
 </body>
 </html>

@@ -11,11 +11,12 @@ public class ExamBean {
     private int time_limits;
     private double score;
     private int status;
+    private String testpaper_url;
 
     public ExamBean() {
     }
 
-    public ExamBean(String stu_id, int exam_id, String exam_name, Timestamp exam_date, Timestamp exam_end, int time_limits, double score, int status) {
+    public ExamBean(String stu_id, int exam_id, String exam_name, Timestamp exam_date, Timestamp exam_end, int time_limits, double score, int status, String testpaper_url) {
         this.stu_id = stu_id;
         this.exam_id = exam_id;
         this.exam_name = exam_name;
@@ -24,7 +25,18 @@ public class ExamBean {
         this.time_limits = time_limits;
         this.score = score;
         this.status = status;
+        this.testpaper_url = testpaper_url;
     }
+//    public ExamBean(String stu_id, int exam_id, String exam_name, Timestamp exam_date, Timestamp exam_end, int time_limits, double score, int status) {
+//        this.stu_id = stu_id;
+//        this.exam_id = exam_id;
+//        this.exam_name = exam_name;
+//        this.exam_date = exam_date;
+//        this.exam_end = exam_end;
+//        this.time_limits = time_limits;
+//        this.score = score;
+//        this.status = status;
+//    }
 
     public String getStu_id() {
         return stu_id;
@@ -88,5 +100,13 @@ public class ExamBean {
 
     public void setExam_end(Timestamp exam_end) {
         this.exam_end = exam_end;
+    }
+
+    public String getTestpaper_url() {
+        return testpaper_url;
+    }
+
+    public void setTestpaper_url(String testpaper_url) {
+        this.testpaper_url = testpaper_url;
     }
 }
