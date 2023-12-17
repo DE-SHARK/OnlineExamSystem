@@ -20,10 +20,9 @@
     <div class="main">
         <div style="text-align: center;">
             <h1>欢迎来到个人信息页面！</h1>
+            <h2>以下是个人信息展示</h2>
 
-            <h1>头像</h1>
-            <img src="${list[0].avatar_url}" width="150" height="autp">
-
+            <img src="${list[0].avatar_url}" width="150" height="auto">
             <p>Uid:${list[0].uid}</p>
             <p>Username:${list[0].username}</p>
             <p>Email:${list[0].email}</p>

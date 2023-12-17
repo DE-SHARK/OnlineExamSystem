@@ -12,6 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <title>密码修改</title>
+    <link rel="stylesheet" href="/css/ModifyPasswordStyle.css">
     <script>
         <%-- 获取错误消息 --%>
         var errorMessage = "${errorMessage}";
@@ -21,13 +22,6 @@
             window.alert(errorMessage);
         }
 
-        <%-- 获取正确消息 --%>
-        var rightMessage = "${rightMessage}";
-        <%-- 检查密码是否修改成功 --%>
-        if (rightMessage) {
-            <%-- 弹出提示框 --%>
-            window.alert(rightMessage);
-        }
     </script>
 </head>
 <body>

@@ -37,6 +37,7 @@ public class GetStudentInformationServlet extends HttpServlet {
 
         if(uid!=null){
             List<StudentInformationBean> list= studentInformationService.getStudentInformationByUid(uid);
+
             req.setAttribute("list",list);
 
             RequestDispatcher dispatcher = req.getRequestDispatcher("/student/studentInformation.jsp");
