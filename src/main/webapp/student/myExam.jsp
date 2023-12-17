@@ -59,6 +59,7 @@
                             <input type="hidden" name="status" value="${exam.status}">
                             <input type="hidden" name="score" value="${exam.score}">
                             <input type="hidden" name="testpaper_url" value="${exam.testpaper_url}">
+                            <input type="hidden" name="course_id" value="${exam.course_id}">
                             <input type="submit" value="查看">
                         </form>
                     </td>

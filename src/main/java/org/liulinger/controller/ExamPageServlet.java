@@ -36,6 +36,9 @@ public class ExamPageServlet extends HttpServlet {
                 request.getSession().setAttribute("exam_id",exam_id);
                 String testpaper_url = request.getParameter("testpaper_url");
                 request.getSession().setAttribute("testpaper_url",testpaper_url);
+                int course_id = Integer.parseInt(request.getParameter("course_id"));
+                request.getSession().setAttribute("course_id",course_id);
+
                 RequestDispatcher view = request.getRequestDispatcher("/student/examination.jsp");
                 view.forward(request, response);
             }else if (currentTime.after(examEndTime)){//缺考

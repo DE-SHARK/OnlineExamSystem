@@ -19,7 +19,8 @@ public class ExamListDaoImpl implements ExamListDao {
         }
         int start = (pageNo - 1) * pageSize;
         try (Connection connection = JDBCUtils.getConnection()) {
-            String sql = "SELECT exams.id AS exam_id, exams.name AS exam_name, exam_date, time_limits, score, status, testpaper_url " +
+            String sql = "SELECT exams.id AS exam_id, exams.name AS exam_name, " +
+                    "exam_date, time_limits, score, status, testpaper_url, exams.course_id " +
                     "FROM users " +
                     "LEFT JOIN studentClass ON studentClass.stu_id = users.uid " +
                     "LEFT JOIN exams ON studentClass.class_id = exams.class_id " +
@@ -44,7 +45,8 @@ public class ExamListDaoImpl implements ExamListDao {
                         double score = resultSet.getDouble("score");
                         int status = resultSet.getInt("status");
                         String testpaper_url = resultSet.getString("testpaper_url");
-                        ExamBean exam = new ExamBean(stu_id, exam_id, exam_name, exam_date, exam_end, time_limits, score, status, testpaper_url);
+                        int course_id = resultSet.getInt("course_id");
+                        ExamBean exam = new ExamBean(stu_id, exam_id, exam_name, exam_date, exam_end, time_limits, score, status, testpaper_url,course_id);
                         examList.add(exam);
                     }
                 }
@@ -109,7 +111,8 @@ public class ExamListDaoImpl implements ExamListDao {
     public List<ExamBean> getExamList(String stu_id) {
         List<ExamBean> examList = new ArrayList<>();
         try (Connection connection = JDBCUtils.getConnection()) {
-            String sql = "SELECT exams.id AS exam_id, exams.name AS exam_name, exam_date, time_limits, score, status, testpaper_url " +
+            String sql = "SELECT exams.id AS exam_id, exams.name AS exam_name, " +
+                    "exam_date, time_limits, score, status, testpaper_url, course_id " +
                     "FROM users " +
                     "LEFT JOIN studentClass ON studentClass.stu_id = users.uid " +
                     "LEFT JOIN exams ON studentClass.class_id = exams.class_id " +
@@ -132,7 +135,8 @@ public class ExamListDaoImpl implements ExamListDao {
                         double score = resultSet.getDouble("score");
                         int status = resultSet.getInt("status");
                         String testpaper_url = resultSet.getString("testpaper_url");
-                        ExamBean exam = new ExamBean(stu_id, exam_id, exam_name, exam_date, exam_end, time_limits, score, status, testpaper_url);
+                        int course_id = resultSet.getInt("course_id");
+                        ExamBean exam = new ExamBean(stu_id, exam_id, exam_name, exam_date, exam_end, time_limits, score, status, testpaper_url, course_id);
                         examList.add(exam);
                     }
                 }
