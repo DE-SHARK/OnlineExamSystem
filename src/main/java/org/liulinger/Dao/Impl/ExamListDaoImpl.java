@@ -32,24 +32,14 @@ public class ExamListDaoImpl implements ExamListDao {
                 preparedStatement.setString(1, stu_id);
                 preparedStatement.setInt(2, start);
                 preparedStatement.setInt(3, pageSize);
-                System.out.println("looking for");
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
                     while (resultSet.next()){
-//                        ExamBean exam = new ExamBean();
-//                        exam.setExam_id(resultSet.getInt("exam_id"));
-//                        exam.setExam_name(resultSet.getString("exam_name"));
-//                        exam.setExam_date(resultSet.getTimestamp("exam_date"));
-//                        exam.setTime_limits(resultSet.getInt("time_limits"));
-//                        exam.setScore(resultSet.getDouble("score"));
-//                        exam.setStatus(resultSet.getInt("status"));
                         int exam_id = resultSet.getInt("exam_id");
                         String exam_name = resultSet.getString("exam_name");
                         Timestamp exam_date = resultSet.getTimestamp("exam_date");
                         int time_limits = resultSet.getInt("time_limits");
                         double score = resultSet.getDouble("score");
                         int status = resultSet.getInt("status");
-                        System.out.println(status);
-                        System.out.println(score);
                         ExamBean exam = new ExamBean(stu_id, exam_id, exam_name, exam_date, time_limits, score, status);
                         examList.add(exam);
                     }

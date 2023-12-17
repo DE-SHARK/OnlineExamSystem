@@ -44,10 +44,6 @@ public class ExamListServlet extends HttpServlet {
         int noOfRecords = examListService.getNumberOfExam(stu_id);
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
         String username = examListService.getUsername(stu_id);
-        System.out.println(stu_id);
-        System.out.println(username);
-        System.out.println(noOfPages);
-        System.out.println(list);
         request.setAttribute("examList", list);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);
