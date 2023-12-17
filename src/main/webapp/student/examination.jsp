@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Title</title>
-    <script src="./js/jquery-1.8.0.min.js"></script>
+    <script src="../js/jquery-1.8.0.min.js"></script>
     <script>
         $(function() {
             $(document).ready(function () {
