@@ -21,6 +21,10 @@
         <div style="text-align: center;">
             <h1>欢迎来到个人信息页面！</h1>
             <h2>以下是个人信息展示</h2>
+            <form action="../ImageUploadServlet" method="post" enctype="multipart/form-data">
+                <input type="file" name="image">
+                <input type="submit" value="上传图片">
+            </form>
 
             <img src="${list[0].avatar_url}" width="150" height="auto">
             <p>Uid:${list[0].uid}</p>

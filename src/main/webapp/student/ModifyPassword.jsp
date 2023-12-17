@@ -15,6 +15,14 @@
     <link rel="stylesheet" href="/css/ModifyPasswordStyle.css">
     <script>
         <%-- 获取错误消息 --%>
+        var newErrorMessage = "${newErrorMessage}";
+        <%-- 检查是否存在错误消息 --%>
+        if (newErrorMessage) {
+            <%-- 弹出提示框 --%>
+            window.alert(newErrorMessage);
+        }
+
+        <%-- 获取错误消息 --%>
         var errorMessage = "${errorMessage}";
         <%-- 检查是否存在错误消息 --%>
         if (errorMessage) {

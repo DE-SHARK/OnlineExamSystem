@@ -28,8 +28,6 @@ public class ModifyPasswordServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        int flag=0;//密码是否修改成功
-
         HttpSession session = req.getSession();
         String uid = (String) session.getAttribute("uid");
         String oldPassword = (String) session.getAttribute("password");
@@ -38,12 +36,22 @@ public class ModifyPasswordServlet extends HttpServlet {
         String newPassword = req.getParameter("newPassword");
 
         if(currentPassword.equals(oldPassword)){
-            studentInformationService.updatePassword(uid,newPassword);
-            // 原密码匹配，且修改的密码符合规范，修改成功，即将跳转到登陆页面
-            String rightMessage = "修改成功，即将跳转到登陆页面";
-            req.setAttribute("rightMessage", rightMessage);
-            req.getRequestDispatcher("login.jsp").forward(req, resp);
-//            flag = 1;
+            if(newPassword != null && !newPassword.isEmpty()){
+                studentInformationService.updatePassword(uid,newPassword);
+                // 原密码匹配，且修改的密码符合规范，修改成功，即将跳转到登陆页面
+                String rightMessage = "修改成功，即将跳转到登陆页面";
+                req.setAttribute("rightMessage", rightMessage);
+                req.getRequestDispatcher("login.jsp").forward(req, resp);
+            }
+            else{
+                //修改的密码不符合规范，显示错误消息并要求重试
+                String newErrorMessage = "原密码输入错误，请重试";
+                req.setAttribute("newErrorMessage", newErrorMessage);
+                req.getRequestDispatcher("/student/ModifyPassword.jsp").forward(req, resp);
+            }
+
+
+
         }else {
             // 原密码不匹配，显示错误消息并要求重试
             String errorMessage = "原密码输入错误，请重试";
@@ -51,9 +59,6 @@ public class ModifyPasswordServlet extends HttpServlet {
             req.getRequestDispatcher("/student/ModifyPassword.jsp").forward(req, resp);
         }
 
-//        if(flag==1){
-//            resp.sendRedirect("login.jsp");
-//        }
 
     }
 
