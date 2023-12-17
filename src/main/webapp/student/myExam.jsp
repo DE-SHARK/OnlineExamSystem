@@ -5,7 +5,7 @@
   Time: 17:29
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -22,6 +22,7 @@
         <p>退出或离开答题页面，答题计时不暂停，进入考试后请不要中途离开，以防超时系统自动收卷。</p>
     </div>
     <div class="body_list">
+        <h4 style="text-align: left">考试列表</h4>
         <table >
             <tr>
                 <th>编号</th>
