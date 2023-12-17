@@ -15,18 +15,23 @@
     <script>
         <%-- 获取错误消息 --%>
         var errorMessage = "${errorMessage}";
-
         <%-- 检查是否存在错误消息 --%>
         if (errorMessage) {
             <%-- 弹出提示框 --%>
             window.alert(errorMessage);
         }
+
+        <%-- 获取正确消息 --%>
+        var rightMessage = "${rightMessage}";
+        <%-- 检查密码是否修改成功 --%>
+        if (rightMessage) {
+            <%-- 弹出提示框 --%>
+            window.alert(rightMessage);
+        }
     </script>
 </head>
 <body>
-<form method="post" action="ModifyPasswordServlet">
-    //1.进行原密码的比较
-    //2.修改密码
+<form method="post" action="../ModifyPasswordServlet">
     <label for="currentPassword">当前密码:</label>
     <input type="password" id="currentPassword" name="currentPassword" required><br><br>
 

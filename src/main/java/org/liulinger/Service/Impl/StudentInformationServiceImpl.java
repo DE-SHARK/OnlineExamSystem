@@ -17,4 +17,9 @@ public class StudentInformationServiceImpl implements StudentInformationService 
     public List<StudentInformationBean> getStudentInformationByUid(String uid) {
         return studentInformationDao.getStudentInformationByUid(uid);
     }
+
+    @Override
+    public void updatePassword(String uid, String password) {
+        studentInformationDao.updatePassword(uid,password);
+    }
 }

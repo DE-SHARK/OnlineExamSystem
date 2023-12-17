@@ -4,6 +4,7 @@ package org.liulinger.Dao.Impl;
 import org.liulinger.Bean.StudentInformationBean;
 import org.liulinger.Dao.StudentInformationDao;
 import org.liulinger.Utils.JDBCUtils;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -42,4 +43,21 @@ public class StudentInformationDaoImpl implements StudentInformationDao {
         }
         return stuList;
     }
+
+    @Override
+    public void updatePassword(String uid,String password) {
+        String sql = "UPDATE users SET password = ? WHERE uid = ?";
+        try(Connection connection = JDBCUtils.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            //哈希加盐更新密码
+            String hashedPassword = BCrypt.hashpw(password,BCrypt.gensalt());
+//            preparedStatement.setString(1,hashedPassword);
+            preparedStatement.setString(1,password);
+            preparedStatement.setString(2,uid);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

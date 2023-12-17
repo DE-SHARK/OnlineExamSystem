@@ -8,13 +8,13 @@
 <body>
 <div class="title">在线考试系统
     <span class="userinfo">用户名:
-        <a href="ModifyPassword.jsp">修改密码</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../login.jsp">退出</a> </span>
+        <a href="/student/ModifyPassword.jsp">修改密码</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../login.jsp">退出</a> </span>
 </div>
 <div class="centerContainer">
     <div class="leftBar">
         <ul>
             <li><a href="../ExamListServlet">我的考试</a></li>
-            <li class="negative"><a style="background-color: #c8c8dc" href="GetStudentInformationServlet">我的信息</a></li>
+            <li class="negative"><a style="background-color: #c8c8dc" href="../GetStudentInformationServlet">我的信息</a></li>
         </ul>
     </div>
     <div class="main">

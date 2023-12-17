@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface StudentInformationDao {
     List<StudentInformationBean> getStudentInformationByUid(String uid);
+
+    void updatePassword(String uid,String password);
 }
