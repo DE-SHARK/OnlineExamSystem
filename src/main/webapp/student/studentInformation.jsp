@@ -13,7 +13,7 @@
 <div class="centerContainer">
     <div class="leftBar">
         <ul>
-            <li><a href="studentPage.jsp">我的考试</a></li>
+            <li><a href="../ExamListServlet?stu_id=${param.stu_id}">我的考试</a></li>
             <li class="negative"><a style="background-color: #c8c8dc" href="GetStudentInformationServlet">我的信息</a></li>
         </ul>
     </div>
