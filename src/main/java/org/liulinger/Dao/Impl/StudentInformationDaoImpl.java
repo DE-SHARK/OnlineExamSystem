@@ -51,8 +51,8 @@ public class StudentInformationDaoImpl implements StudentInformationDao {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             //哈希加盐更新密码
             String hashedPassword = BCrypt.hashpw(password,BCrypt.gensalt());
-//            preparedStatement.setString(1,hashedPassword);
-            preparedStatement.setString(1,password);
+            preparedStatement.setString(1,hashedPassword);
+//            preparedStatement.setString(1,password);
             preparedStatement.setString(2,uid);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
