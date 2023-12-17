@@ -38,9 +38,12 @@ public class ExamListDaoImpl implements ExamListDao {
                         String exam_name = resultSet.getString("exam_name");
                         Timestamp exam_date = resultSet.getTimestamp("exam_date");
                         int time_limits = resultSet.getInt("time_limits");
+                        long timestampMillis = exam_date.getTime();
+                        long newTimestampMillis = timestampMillis + (long) time_limits * 60 * 1000; // 将分钟转换为毫秒
+                        Timestamp exam_end = new Timestamp(newTimestampMillis);
                         double score = resultSet.getDouble("score");
                         int status = resultSet.getInt("status");
-                        ExamBean exam = new ExamBean(stu_id, exam_id, exam_name, exam_date, time_limits, score, status);
+                        ExamBean exam = new ExamBean(stu_id, exam_id, exam_name, exam_date, exam_end, time_limits, score, status);
                         examList.add(exam);
                     }
                 }
@@ -122,9 +125,12 @@ public class ExamListDaoImpl implements ExamListDao {
                         String exam_name = resultSet.getString("exam_name");
                         Timestamp exam_date = resultSet.getTimestamp("exam_date");
                         int time_limits = resultSet.getInt("time_limits");
+                        long timestampMillis = exam_date.getTime();
+                        long newTimestampMillis = timestampMillis + (long) time_limits * 60 * 1000; // 将分钟转换为毫秒
+                        Timestamp exam_end = new Timestamp(newTimestampMillis);
                         double score = resultSet.getDouble("score");
                         int status = resultSet.getInt("status");
-                        ExamBean exam = new ExamBean(stu_id, exam_id, exam_name, exam_date, time_limits, score, status);
+                        ExamBean exam = new ExamBean(stu_id, exam_id, exam_name, exam_date, exam_end, time_limits, score, status);
                         examList.add(exam);
                     }
                 }
