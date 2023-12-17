@@ -98,7 +98,7 @@
     </script>
 </head>
 <body>
-<form id="examForm" action="/SendStudentAnswer" method="post">
+<form id="examForm" action="/SendStudentAnswerServlet" method="post">
     <input type="hidden" id="questionsLength" name="questionsLength">
 </form>
 </body>
