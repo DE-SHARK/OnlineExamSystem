@@ -102,10 +102,9 @@ public class UserDaoImpl implements UserDao {
     @Override
     public int getPermissionByEmail(String email) {
         String sql = "SELECT permission FROM users WHERE email = ?";
-        PreparedStatement preparedStatement = null;
 
         try (Connection connection = JDBCUtils.getConnection()) {
-            preparedStatement = connection.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, email);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
@@ -121,16 +120,17 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public List<UserBean> getUsers(int offset, int limit) {
+    public List<UserBean> getUsersByPermission(int permission, int offset, int limit) {
 
         List<UserBean> userList = new ArrayList<>();
 
-        String sql = "SELECT * FROM users LIMIT ?, ?";
+        String sql = "SELECT * FROM users WHERE permission = ? LIMIT ?, ?";
 
         try (Connection connection = JDBCUtils.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setInt(1, offset);
-            preparedStatement.setInt(2, limit);
+            preparedStatement.setInt(1, permission);
+            preparedStatement.setInt(2, offset);
+            preparedStatement.setInt(3, limit);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 // 处理结果集
                 while (resultSet.next()) {

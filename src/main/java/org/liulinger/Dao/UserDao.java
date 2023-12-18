@@ -16,7 +16,7 @@ public interface UserDao {
 
     int getPermissionByEmail(String email);
 
-    List<UserBean> getUsers(int offset, int limit);
+    List<UserBean> getUsersByPermission(int permission, int offset, int limit);
 
     List<UserBean> getAllUsers();
 
