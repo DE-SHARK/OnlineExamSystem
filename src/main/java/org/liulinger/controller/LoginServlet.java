@@ -7,18 +7,25 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import org.liulinger.Bean.StudentInformationBean;
+import org.liulinger.Dao.Impl.StudentInformationDaoImpl;
 import org.liulinger.Dao.LoginDao;
 import org.liulinger.Dao.Impl.LoginDaoImpl;
+import org.liulinger.Dao.StudentInformationDao;
+import org.liulinger.Service.Impl.StudentInformationServiceImpl;
 import org.liulinger.Service.LoginService;
 import org.liulinger.Service.Impl.LoginServiceImpl;
+import org.liulinger.Service.StudentInformationService;
 
 
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "LoginServ", urlPatterns = "/LoginServlet")
 public class LoginServlet extends HttpServlet {
 
     private LoginService loginService;
+    private StudentInformationService studentInformationService;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -27,6 +34,9 @@ public class LoginServlet extends HttpServlet {
         // 在这里进行依赖注入
         LoginDao loginDao = new LoginDaoImpl();
         this.loginService = new LoginServiceImpl(loginDao);
+        //注入依赖
+        StudentInformationDao studentInformationDao = new StudentInformationDaoImpl();
+        this.studentInformationService = new StudentInformationServiceImpl(studentInformationDao);
     }
 
     @Override
@@ -45,7 +55,10 @@ public class LoginServlet extends HttpServlet {
         session.setAttribute("uid",uid);
         session.setAttribute("password",password);
 
-
+        //获取username
+        List<StudentInformationBean> list= studentInformationService.getStudentInformationByUid(uid);
+        req.setAttribute("list",list);
+        session.setAttribute("username",list.get(0).getUsername());
 
         // 这里可以添加验证验证码的逻辑，确保验证码输入正确
         if (!enteredCaptcha.equalsIgnoreCase(storedCaptcha)) {

@@ -22,7 +22,7 @@
             <li><a style="background-color: #c8c8dc" href="teacherPage.jsp">首页导航</a></li>
             <li class="negative"><a href="teacherGrading.jsp">教师改卷</a></li>
             <li class="negative"><a href="QuestionsManagement.jsp">试题管理</a></li>
-            <li class="negative"><a href="../GetTeacherInformationServlet">教师信息</a></li>
+            <li class="negative"><a href="/teacher/GetTeacherInformationServlet">教师信息</a></li>
         </ul>
     </div>
 
