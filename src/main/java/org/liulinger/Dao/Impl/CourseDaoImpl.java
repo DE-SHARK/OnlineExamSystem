@@ -59,6 +59,27 @@ public class CourseDaoImpl implements CourseDao {
         return 0;
     }
 
+    @Override
+    public boolean addCourse(CourseBean course) {
+
+        try (Connection connection = JDBCUtils.getConnection()) {
+            String sql = "INSERT INTO courses (name, isMandatory) VALUES (?, ?)";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                preparedStatement.setString(1, course.getCourseName());
+                if (course.isMandatory()) {
+                    preparedStatement.setInt(2, 1);
+                } else {
+                    preparedStatement.setInt(2, 2);
+                }
+                int rowsAffected = preparedStatement.executeUpdate();
+                return rowsAffected > 0;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
     private CourseBean getCourse(ResultSet resultSet) throws SQLException {
         CourseBean course = new CourseBean();
 

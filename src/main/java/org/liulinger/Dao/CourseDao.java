@@ -10,4 +10,6 @@ public interface CourseDao {
 
     int getTotalCourses();
 
+    boolean addCourse(CourseBean course);
+
 }
