@@ -31,13 +31,13 @@
         </thead>
         <tbody>
         <%-- 遍历用户列表，显示用户信息 --%>
-        <c:forEach var="user" items="${requestScope.userList}">
+        <c:forEach var="item" items="${requestScope.itemList}">
             <tr>
-                <td>${user.uid}</td>
-                <td>${user.email}</td>
-                <td>${user.username}</td>
-                <td>${user.sex}</td>
-                <td>${user.register_at}</td>
+                <td>${item.uid}</td>
+                <td>${item.email}</td>
+                <td>${item.username}</td>
+                <td>${item.sex}</td>
+                <td>${item.register_at}</td>
                 <!-- 其他列 -->
             </tr>
         </c:forEach>

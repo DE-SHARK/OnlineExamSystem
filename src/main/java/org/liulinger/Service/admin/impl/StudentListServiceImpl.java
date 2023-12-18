@@ -2,11 +2,11 @@ package org.liulinger.Service.admin.impl;
 
 import org.liulinger.Bean.UserBean;
 import org.liulinger.Dao.UserDao;
-import org.liulinger.Service.admin.UserListService;
+import org.liulinger.Service.admin.ItemListService;
 
 import java.util.List;
 
-public class StudentListServiceImpl implements UserListService {
+public class StudentListServiceImpl implements ItemListService<UserBean> {
 
     private final int permission = 1;
 
@@ -17,12 +17,12 @@ public class StudentListServiceImpl implements UserListService {
     }
 
     @Override
-    public List<UserBean> getUsers(int offset, int limit) {
+    public List<UserBean> getItems(int offset, int limit) {
         return userDao.getUsersByPermission(permission, offset, limit);
     }
 
     @Override
-    public int getTotalUsers() {
+    public int getTotalItems() {
         return userDao.getTotalUsersByPermission(permission);
     }
 }
