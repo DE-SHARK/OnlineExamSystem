@@ -14,21 +14,6 @@
 <body>
     <h2>学生管理页面</h2>
 
-    <p>随机生成一些学生数据</p>
-
-    <form action="generate-students" method="post">
-        <label for="uidStart">请输入起始学号：</label>
-        <input type="text" id="uidStart" name="uidStart" required>
-        <br>
-
-        <label for="numberOfStudents">请输入学生数：</label>
-        <input type="number" id="numberOfStudents" name="numberOfStudents" required>
-        <br>
-
-        <input type="submit" value="生成学生数据">
-    </form>
-    <p>${requestScope.successMessage}</p>
-
     <h2>学生列表</h2>
 
     <%--    EL 表达式--%>
@@ -73,5 +58,40 @@
             </c:choose>
         </c:forEach>
     </div>
+
+    <h2>添加学生</h2>
+
+    <form action="student-add" method="post">
+        <label for="uid">学号：</label>
+        <input type="text" id="uid" name="uid" required>
+        <br>
+
+        <label for="name">姓名：</label>
+        <input type="text" id="name" name="name">
+        <br>
+
+        <label for="sex">性别：</label>
+        <input type="text" id="sex" name="sex">
+        <br>
+
+        <input type="submit" value="添加">
+    </form><br>
+
+    <p>随机生成一些学生数据</p>
+
+    <form action="generate-students" method="post">
+        <label for="uidStart">请输入起始学号：</label>
+        <input type="text" id="uidStart" name="uidStart" required>
+        <br>
+
+        <label for="numberOfStudents">请输入学生数：</label>
+        <input type="number" id="numberOfStudents" name="numberOfStudents" required>
+        <br>
+
+        <input type="submit" value="生成学生数据">
+    </form>
+    <p>${requestScope.successMessage}</p>
+
+
 </body>
 </html>
