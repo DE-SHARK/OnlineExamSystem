@@ -10,6 +10,8 @@ import org.liulinger.Dao.StudentInformationDao;
 import org.liulinger.Service.Impl.StudentInformationServiceImpl;
 import org.liulinger.Service.StudentInformationService;
 
+import java.io.IOException;
+
 import java.io.*;
 
 @WebServlet("/student/ImageUploadServlet")
@@ -32,7 +34,12 @@ public class ImageUploadServlet extends HttpServlet {
         String uid = (String) session.getAttribute("uid");
 
         // 获取上传的文件部分
-        Part part = request.getPart("image");
+        Part part = null;
+        try {
+            part = request.getPart("image");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         // 提取文件名
         String fileName = getFileName(part);
 
@@ -47,16 +54,16 @@ public class ImageUploadServlet extends HttpServlet {
         System.out.println(saveDataPath);
         studentInformationService.updateAvatar_url(uid,saveDataPath);
 
-//        // 自行判断文件是否已存在
-//        File file = new File(savePath);
-//        if (file.exists()) {
-//            System.out.println("文件已存在。");
-//            // 可以进行其他处理，例如重命名文件或直接返回错误信息
-//            response.getWriter().println("Error: File already exists!");
-//            return;
-//        }
+        // 自行判断文件是否已存在
+        File file = new File(savePath);
+        if (file.exists()) {
+            System.out.println("文件已存在。");
+            // 可以进行其他处理，例如重命名文件或直接返回错误信息
+            response.getWriter().println("Error: File already exists!");
+            return;
+        }
 
-        // 将文件保存到指定路径
+         //将文件保存到指定路径
         try {
             part.write(savePath);
             System.out.println("写入文件成功。");
@@ -68,17 +75,17 @@ public class ImageUploadServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        // 可以进行其他处理，例如保存文件路径到数据库等
-        // 再刷新页面
+         //可以进行其他处理，例如保存文件路径到数据库等
+        //再刷新页面
         response.getWriter().println("Upload Success!");
-        // 延迟2秒
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
-        // 返回原页面
-        response.sendRedirect("GetStudentInformationServlet");
+         //延迟2秒
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+         //返回原页面
+        response.sendRedirect("/student/GetStudentInformationServlet");
     }
 
     // 从 Part 中提取文件名

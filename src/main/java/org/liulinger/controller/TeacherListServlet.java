@@ -7,16 +7,16 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.liulinger.Bean.UserBean;
-import org.liulinger.Dao.UserDao;
 import org.liulinger.Dao.Impl.UserDaoImpl;
-import org.liulinger.Service.Impl.StudentListServiceImpl;
+import org.liulinger.Dao.UserDao;
+import org.liulinger.Service.Impl.TeacherListServiceImpl;
 import org.liulinger.Service.UserListService;
 
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/admin/student-list")
-public class StudentListServlet extends HttpServlet {
+@WebServlet("/admin/teacher-list")
+public class TeacherListServlet extends HttpServlet {
 
     private UserListService userListService;
 
@@ -26,7 +26,7 @@ public class StudentListServlet extends HttpServlet {
 
         // 进行依赖注入
         UserDao userDao = new UserDaoImpl();
-        this.userListService = new StudentListServiceImpl(userDao);
+        this.userListService = new TeacherListServiceImpl(userDao);
     }
 
     @Override
@@ -74,7 +74,7 @@ public class StudentListServlet extends HttpServlet {
         request.setAttribute("totalPages", totalPages);
 
         // 转发到用户列表页面
-        request.getRequestDispatcher("/admin/studentManagement.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/teacherManagement.jsp").forward(request, response);
     }
 
     private int extractPage(HttpServletRequest request) {

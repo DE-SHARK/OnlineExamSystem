@@ -9,6 +9,8 @@ public class GenerateServiceImpl implements org.liulinger.Service.GenerateServic
 
     private String successMessage;  // 成功消息字段
 
+    private int permission;
+
     private static NameGen nameGen;
 
     private final UserDao userDao;
@@ -19,7 +21,9 @@ public class GenerateServiceImpl implements org.liulinger.Service.GenerateServic
     }
 
     @Override
-    public void doGenerate(String uidStart, int numbers) {
+    public void doGenerate(String uidStart, int numbers, int permission) {
+
+        this.permission = permission;
 
         for (int i = 0; i < numbers; i++) {
             UserBean randomUser = generateStudent(uidStart);
@@ -28,7 +32,11 @@ public class GenerateServiceImpl implements org.liulinger.Service.GenerateServic
             // 学号自增
             uidStart = String.valueOf(Integer.parseInt(uidStart) + 1);
             // 设置成功消息
-            successMessage = "成功添加 " + numbers + " 个学生！";
+            if (permission == 1) {
+                successMessage = "成功添加 " + numbers + " 个学生！";
+            } else {
+                successMessage = "成功添加 " + numbers + " 个教师！";
+            }
         }
 
     }
@@ -38,7 +46,7 @@ public class GenerateServiceImpl implements org.liulinger.Service.GenerateServic
         return successMessage;
     }
 
-    public static UserBean generateStudent(String  uidStart) {
+    public UserBean generateStudent(String uidStart) {
         UserBean user = new UserBean();
 
         // 获取最后六位数字
@@ -52,7 +60,7 @@ public class GenerateServiceImpl implements org.liulinger.Service.GenerateServic
         user.setUid(uidStart);
         user.setUsername(name);
         user.setPassword(password);
-        user.setPermission(1);
+        user.setPermission(this.permission);
         user.setSex(sex);
 
         return user;
