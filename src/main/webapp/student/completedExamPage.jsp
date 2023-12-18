@@ -9,13 +9,16 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="../css/Display.css">
 </head>
 <body>
-    <div>
+    <div class="score-box">
         <h1>考试完成</h1>
-        <p>姓名：${sessionScope.username}</p>
-        <p>成绩：${requestScope.score}</p>
-        <p>考试时间：${requestScope.examStartTime}&nbsp;至&nbsp; ${requestScope.examEndTime}</p>
+        <p>本次成绩：${requestScope.score}分</p>
+        <div class="name-time">
+            <p>姓名：${sessionScope.username}</p>
+            <p>考试时间：${requestScope.examStartTime}&nbsp;至&nbsp; ${requestScope.examEndTime}</p>
+        </div>
     </div>
 
 </body>
