@@ -19,7 +19,7 @@
     <div class="leftBar">
         <ul>
             <li><a style="background-color: #c8c8dc" href="adminPage.jsp">首页导航</a></li>
-            <li class="negative"><a href="TeacherManagement.jsp">教师管理</a></li>
+            <li class="negative"><a href="teacher-management">教师管理</a></li>
             <li class="negative"><a href="student-management">学生管理</a></li>
         </ul>
     </div>

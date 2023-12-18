@@ -6,13 +6,13 @@ import org.liulinger.Service.UserListService;
 
 import java.util.List;
 
-public class StudentListServiceImpl implements UserListService {
+public class TeacherListServiceImpl implements UserListService {
 
-    private final int permission = 1;
+    private final int permission = 2;
 
     private final UserDao userDao;  // 通过成员变量保存依赖
 
-    public StudentListServiceImpl(UserDao userDao) {
+    public TeacherListServiceImpl(UserDao userDao) {
         this.userDao = userDao;  // 注入依赖
     }
 
