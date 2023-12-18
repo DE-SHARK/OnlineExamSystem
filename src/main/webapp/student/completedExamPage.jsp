@@ -14,10 +14,22 @@
 <body>
     <div class="score-box">
         <h1>考试完成</h1>
-        <p>本次成绩：${requestScope.score}分</p>
+        <span>本次成绩：</span><span id="score">${requestScope.score}</span> <span>分</span>
         <div class="name-time">
-            <p>姓名：${sessionScope.username}</p>
-            <p>考试时间：${requestScope.examStartTime}&nbsp;至&nbsp; ${requestScope.examEndTime}</p>
+            <table>
+                <tr>
+                    <td>姓名：${sessionScope.username}</td><td></td>
+                </tr>
+                <tr>
+                    <td>考试时间：</td><td>${requestScope.examStartTime}</td>
+                </tr>
+                <tr>
+                    <td></td><td style="text-align: center">至</td>
+                </tr>
+                <tr>
+                    <td></td><td>${requestScope.examEndTime}</td>
+                </tr>
+            </table>
         </div>
     </div>
 

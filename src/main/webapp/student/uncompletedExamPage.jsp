@@ -22,8 +22,20 @@
             <h1>考试未开始</h1>
         </c:if>
         <div class="name-time">
-            <p>姓名：${sessionScope.username}</p>
-            <p>考试时间：${requestScope.examStartTime}&nbsp;至&nbsp;${requestScope.examEndTime}</p>
+            <table>
+                <tr>
+                    <td>姓名：${sessionScope.username}</td><td></td>
+                </tr>
+                <tr>
+                    <td>考试时间：</td><td>${requestScope.examStartTime}</td>
+                </tr>
+                <tr>
+                    <td></td><td style="text-align: center">至</td>
+                </tr>
+                <tr>
+                    <td></td><td>${requestScope.examEndTime}</td>
+                </tr>
+            </table>
         </div>
 
     </div>

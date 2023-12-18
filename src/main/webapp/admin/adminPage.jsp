@@ -5,7 +5,7 @@
   Time: 12:43
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>This is AdministratorIndex</title>
@@ -21,6 +21,9 @@
             <li><a style="background-color: #c8c8dc" href="adminPage.jsp">首页导航</a></li>
             <li class="negative"><a href="teacher-management">教师管理</a></li>
             <li class="negative"><a href="student-management">学生管理</a></li>
+            <li class="negative"><a href="course-management">课程管理</a></li>
+            <li class="negative"><a href="class-management">班级管理</a></li>
+            <li class="negative"><a href="exam-management">考试管理</a></li>
         </ul>
     </div>
     <div class="main">
