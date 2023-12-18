@@ -11,7 +11,6 @@ public interface ExamListDao {
 
      List<ExamBean> getUsersPaginated(int pageNo, int pageSize, String stu_id);
 
-     List<ExamBean> getExamList(String stu_id);
      String getUsername(String stu_id);
 
 
