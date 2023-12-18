@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: c~java
@@ -46,7 +47,7 @@
     </script>
 </head>
 <body>
-    <form id="studentExamForm" action="GiveGradeServlet" method="post">
+    <form id="studentExamForm" action="<c:url value="/teacher/GiveGradeServlet"/>" method="post">
         <div>
 
         </div>

@@ -11,6 +11,49 @@
 <html>
 <head>
     <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        table.exam-list {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table.exam-list th, table.exam-list td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        table.exam-list th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        table.exam-list tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table.exam-list tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        td#exam_url {
+            cursor: pointer;
+            color: #0066cc;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
@@ -29,18 +72,20 @@
         <c:forEach var="studentexam" items="${sessionScope.examlist}">
             <tr>
                 <td>${studentexam.stu_id}</td>
-                <td>${student.stu_name}</td>
-                <td>${student.course_name}</td>
-                <td id="exam_url" onclick="viewExam('${studentexam.stu_id}', '${studentexam.testpaper_url}')">查看试卷</td>
+                <td>${studentexam.stu_name}</td>
+                <td>${studentexam.course_name}</td>
+                <td id="exam_url" onclick="viewExam('${studentexam.stu_id}', '${studentexam.testpaper_url}', '${studentexam.course_id}', '${studentexam.exam_id}')">查看试卷</td>
 
             </tr>
         </c:forEach>
     </table>
     <script>
-        function viewExam(studentId, examUrl) {
-            const encodedStuId = encodeURIComponent(studentId);
-            const encodedExamUrl = encodeURIComponent(examUrl);
-            window.location.href = `GetPaperContentServlet?stu_id=${encodedStuId}&exam_url=${encodedExamUrl}`;
+        function viewExam(studentId, examUrl, course_id, exam_id) {
+            const encodedStuId = studentId;
+            const encodedExamUrl = examUrl;
+            const encodedCourseId = course_id;
+            const encodedExamId = exam_id;
+            window.location.href = "GetPaperContentServlet?stu_id=" + encodedStuId + "&exam_url="+encodedExamUrl + "&course_id=" + encodedCourseId + "&exam_id=" + encodedExamId;
         }
     </script>
 

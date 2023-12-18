@@ -15,13 +15,13 @@ public class ChooseExamDaoImpl implements ChooseExamDao {
     @Override
     public List<ChooseExamBean> ChooseExam(String course_name, String teacher_id) {
         List<ChooseExamBean> list = new ArrayList<>();
-
+//需要username,stu_id,testpaper_url,exam_name,teacher_id
         try (Connection connection = JDBCUtils.getConnection()) {
-            String sql = "select username,testpaper_url,stu_id from teacherClass,classCourse,exams,grades,users " +
-                    "where teacherClass.class_id = classCourse.class_id and" +
-                    " classCourse.course_id = exams.course_id and " +
-                    "exams.course_id = grades.course_id and  grades.stu_id = users.uid and " +
-                    "teacherClass.teacher_id = ? and  exams.name = ?";
+            String sql = "SELECT username,testpaper_url,stu_id,course_id,exams.id as exam_id " +
+                    "FROM  users, teacherClass, classes, exams, studentClass " +
+                    "WHERE teacherClass.class_id = classes.id AND users.uid = studentClass.stu_id " +
+                    "  AND  studentClass.class_id = classes.id AND classes.id = exams.class_id " +
+                    "  AND teacherClass.teacher_id = ? AND  exams.name = ?";
             try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
                     preparedStatement.setString(1, teacher_id);
                     preparedStatement.setString(2, course_name);
@@ -31,7 +31,9 @@ public class ChooseExamDaoImpl implements ChooseExamDao {
                         String stu_name = resultSet.getString("username");
                         String stu_id = resultSet.getString("stu_id");
                         String testpaper_url = resultSet.getString("testpaper_url");
-                        ChooseExamBean chooseExamBean = new ChooseExamBean(stu_id,stu_name,course_name,testpaper_url);
+                        int course_id = resultSet.getInt("course_id");
+                        int exam_id = resultSet.getInt("exam_id");
+                        ChooseExamBean chooseExamBean = new ChooseExamBean(stu_id,stu_name,course_name,testpaper_url,course_id,exam_id);
                         list.add(chooseExamBean);
                     }
                 }

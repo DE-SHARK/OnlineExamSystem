@@ -25,7 +25,12 @@ public class GiveGradeServlet extends HttpServlet {
         int course_id = (int) request.getSession().getAttribute("course_id");
         int exam_id = (int) request.getSession().getAttribute("exam_id");
         ChangeExamStausService changeExamStausService = new ChangeExamStausServiceImpl();
-        String result = changeExamStausService.ChangeExamStaus(stu_id,course_id,exam_id,grade);
-        System.out.println(result);
+        String result = changeExamStausService.ChangeExamStaus(stu_id, course_id, exam_id, grade);
+        if (grade != 0) {
+            response.sendRedirect("ChooseExam.jsp?message=" + result);
+        }
+        else {
+            response.sendRedirect("ChooseExam.jsp?message=The Student is missing exam");
+        }
     }
 }

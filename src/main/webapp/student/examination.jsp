@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -35,7 +36,7 @@
     </script>
 </head>
 <body>
-<form id="examForm" action="/SendStudentAnswerServlet" method="post">
+<form id="examForm" action="<c:url value="/student/SendStudentAnswerServlet"/>" method="post">
     <input type="hidden" id="questionsLength" name="questionsLength">
 </form>
 </body>
