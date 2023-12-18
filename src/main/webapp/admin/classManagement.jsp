@@ -67,7 +67,7 @@
         </c:forEach>
     </div>
 
-    <h2>添加课程</h2>
+    <h2>添加班级</h2>
 
     <form id="classForm" action="" method="post" onsubmit="submitForm(); return false;">
         <label for="name">班级名：</label>
