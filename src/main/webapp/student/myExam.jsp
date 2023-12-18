@@ -52,7 +52,7 @@
                         <td>${exam.score}</td>
                     </c:if>
                     <td>
-                        <form action="<c:url value="/student/ExamPageServlet"/>" method="post">
+                        <form action="<c:url value="/student/exam-page-servlet"/>" method="post">
                             <input type="hidden" name="exam_date" value="${exam.exam_date}">
                             <input type="hidden" name="exam_end" value="${exam.exam_end}">
                             <input type="hidden" name="exam_id" value="${exam.exam_id}">

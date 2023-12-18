@@ -13,7 +13,7 @@
 <div class="centerContainer">
     <div class="leftBar">
         <ul>
-            <li><a href="<c:url value="/student/ExamListServlet"/>">我的考试</a></li>
+            <li><a href="<c:url value="/student/exam-list-servlet"/>">我的考试</a></li>
             <li class="negative"><a style="background-color: #c8c8dc" href="<c:url value="/student/GetStudentInformationServlet"/>">我的信息</a></li>
         </ul>
     </div>

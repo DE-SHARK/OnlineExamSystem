@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import java.io.IOException;
 @WebFilter("/*")
 public class PermisCheckFilter implements Filter {
+    private static final String[] ALLOWED_EXTENSIONS = {".css", ".png", ".jpg", ".jpeg", ".gif"};
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         int permission = -1;
@@ -19,7 +20,9 @@ public class PermisCheckFilter implements Filter {
         // 获取当前请求的路径
         String path = httpRequest.getRequestURI().substring(httpRequest.getContextPath().length());
         //某些页面不进行拦截
-        if ("/".equals(path)||"/login.jsp".equals(path) || "/LoginServlet".equals(path) || "/CaptchaImageServlet".equals(path) || "/Register.jsp".equals(path) || "/ModifyPassword.jsp".equals(path)) {
+        if ("/".equals(path)||"/login.jsp".equals(path) || "/LoginServlet".equals(path) ||
+                "/CaptchaImageServlet".equals(path) || "/Register.jsp".equals(path) ||
+                "/ModifyPassword.jsp".equals(path) || isAllowedExtension(path) ||  "/ModifyPasswordServlet".equals(path)) {
             chain.doFilter(request, response);
             return;
         }
@@ -47,5 +50,13 @@ public class PermisCheckFilter implements Filter {
     @Override
     public void destroy() {
 
+    }
+    private boolean isAllowedExtension(String path) {
+        for (String extension : ALLOWED_EXTENSIONS) {
+            if (path.endsWith(extension)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
