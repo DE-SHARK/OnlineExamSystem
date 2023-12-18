@@ -22,8 +22,8 @@
         <p>退出或离开答题页面，答题计时不暂停，进入考试后请不要中途离开，以防超时系统自动收卷。</p>
     </div>
     <div class="body_list">
-        <h4 style="text-align: left">考试列表</h4>
-        <table >
+        <h1 style="text-align: left">考试列表</h1>
+        <table class="exam-list">
             <tr>
                 <th>编号</th>
                 <th>考试名称</th>

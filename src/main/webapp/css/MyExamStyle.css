@@ -21,16 +21,19 @@ body {
     margin: 20px;
     text-align: center;
 }
-
+.exam-list{
+    text-align: center;
+}
 table {
     width: 100%;
     border-collapse: collapse;
+    text-align: center;
 }
 
 th, td {
     border: 1px solid #ddd;
     padding: 8px;
-    text-align: left;
+    text-align: center;
 }
 
 th {
