@@ -6,4 +6,6 @@ public interface LoginService {
 
     int getPermission(String email);
 
+    String getUsername(String uid);
+
 }

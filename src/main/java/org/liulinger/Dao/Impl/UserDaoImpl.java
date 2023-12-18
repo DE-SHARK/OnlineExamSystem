@@ -80,17 +80,15 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public UserBean getUserByUsername(String username) {
-        String sql = "SELECT * FROM users WHERE username = ?";
-        PreparedStatement preparedStatement;
+    public String getUsernameByUid(String uid) {
+        String sql = "SELECT username FROM users WHERE uid = ?";
         try (Connection connection = JDBCUtils.getConnection()) {
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, username);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, uid);
 
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
-
-                    return getUser(resultSet);
+                    return resultSet.getString("username");
                 }
             }
         } catch (SQLException e) {

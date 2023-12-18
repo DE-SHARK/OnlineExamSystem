@@ -43,11 +43,9 @@ public class ExamListServlet extends HttpServlet {
         List<ExamBean> list = examListService.getUsersPaginated(page, recordsPerPage, stu_id);
         int noOfRecords = examListService.getNumberOfExam(stu_id);
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
-        String username = examListService.getUsername(stu_id);
         request.setAttribute("examList", list);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", page);
-        session.setAttribute("username", username);
         RequestDispatcher view = request.getRequestDispatcher("/student/myExam.jsp");
         view.forward(request, response);
     }

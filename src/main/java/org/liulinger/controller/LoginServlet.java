@@ -7,8 +7,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import org.liulinger.Dao.Impl.UserDaoImpl;
 import org.liulinger.Dao.LoginDao;
 import org.liulinger.Dao.Impl.LoginDaoImpl;
+import org.liulinger.Dao.UserDao;
 import org.liulinger.Service.LoginService;
 import org.liulinger.Service.Impl.LoginServiceImpl;
 
@@ -26,7 +28,8 @@ public class LoginServlet extends HttpServlet {
 
         // 在这里进行依赖注入
         LoginDao loginDao = new LoginDaoImpl();
-        this.loginService = new LoginServiceImpl(loginDao);
+        UserDao userDao = new UserDaoImpl();
+        this.loginService = new LoginServiceImpl(loginDao, userDao);
     }
 
     @Override
@@ -62,6 +65,7 @@ public class LoginServlet extends HttpServlet {
             // 根据权限重定向到相应页面
             int permission = loginService.getPermission(uid);
             req.getSession().setAttribute("permission", permission); //将权限放入session
+            session.setAttribute("username",loginService.getUsername(uid));
             if (permission == 1) {
                 // 为用户 session 设置登录属性
                 session.setAttribute("userType", true);

@@ -12,7 +12,7 @@ public interface UserDao {
 
     void deleteUser(String user);
 
-    UserBean getUserByUsername(String username);
+    String getUsernameByUid(String uid);
 
     int getPermissionByEmail(String email);
 
