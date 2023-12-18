@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="title">在线考试系统
-    <span class="userinfo">用户名:
+    <span class="userinfo"><p>用户名:${list[0].username}</p>
         <a href="<c:url value="/ModifyPassword.jsp"/>">修改密码</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../login.jsp">退出</a> </span>
 </div>
 <div class="centerContainer">

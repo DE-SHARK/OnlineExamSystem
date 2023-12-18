@@ -39,6 +39,7 @@ public class GetStudentInformationServlet extends HttpServlet {
 
             req.setAttribute("list",list);
 
+
             RequestDispatcher dispatcher = req.getRequestDispatcher("/student/studentInformation.jsp");
             dispatcher.forward(req, resp);
         }
