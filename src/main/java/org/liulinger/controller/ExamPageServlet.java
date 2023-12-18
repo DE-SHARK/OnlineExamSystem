@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Timestamp;
 
-@WebServlet("/ExamPageServlet")
+@WebServlet("/student/ExamPageServlet")
 public class ExamPageServlet extends HttpServlet {
 
     @Override

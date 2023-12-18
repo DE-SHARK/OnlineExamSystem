@@ -61,6 +61,7 @@ public class LoginServlet extends HttpServlet {
         if (loginService.checkPassword(uid, password)) {
             // 根据权限重定向到相应页面
             int permission = loginService.getPermission(uid);
+            req.getSession().setAttribute("permission", permission); //将权限放入session
             if (permission == 1) {
                 // 为用户 session 设置登录属性
                 session.setAttribute("userType", true);

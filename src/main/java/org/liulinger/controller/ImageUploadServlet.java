@@ -12,7 +12,7 @@ import org.liulinger.Service.StudentInformationService;
 
 import java.io.*;
 
-@WebServlet("/ImageUploadServlet")
+@WebServlet("/student/ImageUploadServlet")
 @MultipartConfig
 public class ImageUploadServlet extends HttpServlet {
     private StudentInformationService studentInformationService;

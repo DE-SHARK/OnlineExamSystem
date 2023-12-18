@@ -18,7 +18,7 @@ import org.liulinger.Service.Impl.ExamListServiceImpl;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/ExamListServlet")
+@WebServlet("/student/ExamListServlet")
 public class ExamListServlet extends HttpServlet {
 
     private ExamListService examListService;

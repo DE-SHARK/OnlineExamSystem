@@ -17,7 +17,7 @@ import org.liulinger.Service.StudentInformationService;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/GetStudentInformationServlet")
+@WebServlet("/student/GetStudentInformationServlet")
 public class GetStudentInformationServlet extends HttpServlet {
     private StudentInformationService studentInformationService;
     @Override
