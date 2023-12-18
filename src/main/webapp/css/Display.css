@@ -27,3 +27,20 @@ p {
 .name-time {
     margin-top: 20px;
 }
+#confirm-button {
+    background-color: white; /* 白色背景 */
+    color: blue; /* 蓝色文字 */
+    padding: 10px 20px; /* 按钮内边距 */
+    border: 2px solid rgb(128, 128, 128); /* 2像素蓝色边框 */
+    border-radius: 5px; /* 圆角 */
+    text-align: center; /* 文字居中 */
+    text-decoration: none; /* 文字无下划线 */
+    display: inline-block; /* 行内块元素 */
+    font-size: 16px; /* 字体大小 */
+    margin: 10px 0; /* 按钮周围的外边距 */
+    cursor: pointer; /* 鼠标悬停时的光标形状 */
+}
+
+#confirm-button:hover {
+    background-color: #f0f0f0; /* 鼠标悬停时的浅灰色背景 */
+}
