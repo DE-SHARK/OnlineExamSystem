@@ -28,7 +28,7 @@
         <input type="submit" value="生成学生数据">
     </form>
 
-    <h2>用户列表</h2>
+    <h2>学生列表</h2>
 
     <%--    EL 表达式--%>
     <%--    ${users}--%>
@@ -67,7 +67,7 @@
                     <span>${page}</span>
                 </c:when>
                 <c:otherwise>
-                    <a href="UserListServlet?page=${page}">${page}</a>
+                    <a href="student-management?page=${page}">${page}</a>
                 </c:otherwise>
             </c:choose>
         </c:forEach>

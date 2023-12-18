@@ -20,6 +20,6 @@ public interface UserDao {
 
     List<UserBean> getAllUsers();
 
-    int getTotalUsers();
+    int getTotalUsersByPermission(int permission);
 
 }

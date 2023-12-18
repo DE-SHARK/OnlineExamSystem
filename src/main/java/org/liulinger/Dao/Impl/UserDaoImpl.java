@@ -170,16 +170,17 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public int getTotalUsers() {
-        String sql = "SELECT COUNT(*) FROM users";
-
+    public int getTotalUsersByPermission(int permission) {
+        String sql = "SELECT COUNT(*) FROM users WHERE permission = ?";
 
         try (Connection connection = JDBCUtils.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-             ResultSet resultSet = preparedStatement.executeQuery()) {
-            if (resultSet.next()) {
-                // 获取并返回结果集的第一列的值，即总记录数
-                return resultSet.getInt(1);
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setInt(1, permission);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    // 获取并返回结果集的第一列的值，即总记录数
+                    return resultSet.getInt(1);
+                }
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

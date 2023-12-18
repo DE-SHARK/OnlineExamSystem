@@ -21,6 +21,6 @@ public class StudentListServiceImpl implements UserListService {
 
     @Override
     public int getTotalUsers() {
-        return 0;
+        return userDao.getTotalUsersByPermission(1);
     }
 }
