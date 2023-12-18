@@ -33,7 +33,7 @@
     </script>
 </head>
 <body>
-<form method="post" action="../ModifyPasswordServlet">
+<form method="post" action="/ModifyPasswordServlet">
     <label for="currentPassword">当前密码:</label>
     <input type="password" id="currentPassword" name="currentPassword" required><br><br>
 

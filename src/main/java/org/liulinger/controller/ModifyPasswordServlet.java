@@ -47,7 +47,7 @@ public class ModifyPasswordServlet extends HttpServlet {
                 //修改的密码不符合规范，显示错误消息并要求重试
                 String newErrorMessage = "原密码输入错误，请重试";
                 req.setAttribute("newErrorMessage", newErrorMessage);
-                req.getRequestDispatcher("/student/ModifyPassword.jsp").forward(req, resp);
+                req.getRequestDispatcher("/ModifyPassword.jsp").forward(req, resp);
             }
 
 
@@ -56,7 +56,7 @@ public class ModifyPasswordServlet extends HttpServlet {
             // 原密码不匹配，显示错误消息并要求重试
             String errorMessage = "原密码输入错误，请重试";
             req.setAttribute("errorMessage", errorMessage);
-            req.getRequestDispatcher("/student/ModifyPassword.jsp").forward(req, resp);
+            req.getRequestDispatcher("/ModifyPassword.jsp").forward(req, resp);
         }
 
 
