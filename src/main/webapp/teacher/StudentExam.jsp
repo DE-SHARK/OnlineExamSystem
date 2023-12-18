@@ -17,7 +17,7 @@
                 <%--var exam_url = ${sessionScope.exam_url};--%>
                 $.post("/StudentExamServlet","exam_url=C:/Study_Information/git本地仓库/OnlineExamSystem/math_exam.json",function (rs){
                     var questions = rs.questions;
-                    var answers =rs["2100"];
+                    var answers =rs["${sessionScope.stu_id}"];
 
                     for (var i = 0; i < questions.length; i++) {
                         var topicValue = questions[i].topic;
