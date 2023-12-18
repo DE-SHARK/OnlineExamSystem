@@ -1,7 +1,7 @@
 package org.liulinger.Service.admin.impl;
 
 import org.liulinger.Bean.CourseBean;
-import org.liulinger.Dao.CourseDao;
+import org.liulinger.Dao.admin.CourseDao;
 import org.liulinger.Service.admin.CourseAddService;
 
 public class CourseAddServiceImpl implements CourseAddService {

@@ -7,8 +7,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.liulinger.Bean.CourseBean;
-import org.liulinger.Dao.CourseDao;
-import org.liulinger.Dao.Impl.CourseDaoImpl;
+import org.liulinger.Dao.admin.CourseDao;
+import org.liulinger.Dao.admin.impl.CourseDaoImpl;
 import org.liulinger.Service.admin.CourseAddService;
 import org.liulinger.Service.admin.impl.CourseAddServiceImpl;
 

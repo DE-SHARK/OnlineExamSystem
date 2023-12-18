@@ -2,8 +2,8 @@ package org.liulinger.controller.admin.management.course;
 
 import jakarta.servlet.annotation.WebServlet;
 import org.liulinger.Bean.CourseBean;
-import org.liulinger.Dao.CourseDao;
-import org.liulinger.Dao.Impl.CourseDaoImpl;
+import org.liulinger.Dao.admin.CourseDao;
+import org.liulinger.Dao.admin.impl.CourseDaoImpl;
 import org.liulinger.Service.admin.ItemListService;
 import org.liulinger.Service.admin.impl.CourseListServiceImpl;
 import org.liulinger.controller.admin.management.ItemListServlet;
