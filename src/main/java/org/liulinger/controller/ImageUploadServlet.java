@@ -47,6 +47,14 @@ public class ImageUploadServlet extends HttpServlet {
         System.out.println(saveDataPath);
         studentInformationService.updateAvatar_url(uid,saveDataPath);
 
+//        // 自行判断文件是否已存在
+//        File file = new File(savePath);
+//        if (file.exists()) {
+//            System.out.println("文件已存在。");
+//            // 可以进行其他处理，例如重命名文件或直接返回错误信息
+//            response.getWriter().println("Error: File already exists!");
+//            return;
+//        }
 
         // 将文件保存到指定路径
         try {

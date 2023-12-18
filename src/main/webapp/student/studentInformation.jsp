@@ -21,7 +21,6 @@
         <div style="text-align: center;">
             <h1>欢迎来到个人信息页面！</h1>
             <h2>以下是个人信息展示</h2>
-<%--            图像路径保存正确，但上传到数据库失败，且若存在已保存的图片则写入冲突报错--%>
 <%--            <form action="../ImageUploadServlet" method="post" enctype="multipart/form-data">--%>
 <%--                <input type="file" name="image">--%>
 <%--                <input type="submit" value="上传图片">--%>
