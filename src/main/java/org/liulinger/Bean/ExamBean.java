@@ -6,6 +6,8 @@ public class ExamBean {
     private String stuId;
     private int examId;
     private String examName;
+    private int classId;
+    private int secondClassId;
     private Timestamp examDate;
     private Timestamp examEnd;
     private int timeLimits;
@@ -14,6 +16,9 @@ public class ExamBean {
     private String testPaperUrl;
 
     private int courseId;
+
+    private boolean mandatory;
+    private int trueClassId;
 
     public ExamBean() {
     }
@@ -63,6 +68,22 @@ public class ExamBean {
 
     public void setExamName(String examName) {
         this.examName = examName;
+    }
+
+    public int getClassId() {
+        return classId;
+    }
+
+    public void setClassId(int classId) {
+        this.classId = classId;
+    }
+
+    public int getSecondClassId() {
+        return secondClassId;
+    }
+
+    public void setSecondClassId(int secondClassId) {
+        this.secondClassId = secondClassId;
     }
 
     public Timestamp getExamDate() {
@@ -117,5 +138,21 @@ public class ExamBean {
 
     public void setCourseId(int courseId) {
         this.courseId = courseId;
+    }
+
+    public boolean isMandatory() {
+        return mandatory;
+    }
+
+    public void setMandatory(boolean mandatory) {
+        this.mandatory = mandatory;
+    }
+
+    public int getTrueClassId() {
+        return trueClassId;
+    }
+
+    public void setTrueClassId(int trueClassId) {
+        this.trueClassId = trueClassId;
     }
 }
