@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: desha
@@ -5,13 +6,13 @@
   Time: 11:02
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>教师管理页面</title>
 </head>
 <body>
-    <h2>学生列表</h2>
+    <h2>教师列表</h2>
 
     <%--    EL 表达式--%>
     <%--    ${users}--%>
@@ -19,7 +20,7 @@
     <table>
         <thead>
         <tr>
-            <th>学号</th>
+            <th>教师号</th>
             <th>邮箱</th>
             <th>姓名</th>
             <th>性别</th>
