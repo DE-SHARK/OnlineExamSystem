@@ -21,7 +21,7 @@
         <div style="text-align: center;">
             <h1>欢迎来到个人信息页面！</h1>
             <h2>以下是个人信息展示</h2>
-<%--            <form action="../ImageUploadServlet" method="post" enctype="multipart/form-data">--%>
+<%--            <form action="/student/ImageUploadServlet" method="post" enctype="multipart/form-data">--%>
 <%--                <input type="file" name="image">--%>
 <%--                <input type="submit" value="上传图片">--%>
 <%--            </form>--%>
