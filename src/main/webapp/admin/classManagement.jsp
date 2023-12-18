@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>班级管理页面</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <!-- 添加JavaScript代码 -->
     <script>
