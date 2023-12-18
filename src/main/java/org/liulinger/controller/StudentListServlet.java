@@ -62,6 +62,6 @@ public class StudentListServlet extends HttpServlet {
         request.setAttribute("totalPages", totalPages);
 
         // 转发到用户列表页面
-        request.getRequestDispatcher("/admin/StudentManges.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/studentManagement.jsp").forward(request, response);
     }
 }
