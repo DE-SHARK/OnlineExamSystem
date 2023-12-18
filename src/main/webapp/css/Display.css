@@ -17,22 +17,28 @@ body {
 }
 
 h1 {
-    color: #333;
+    font-size: 40px;
+    color: #3a8bff;
 }
-
+#score{
+    font-size: 30px;
+    color: #88c3f4;
+}
 p {
     margin: 10px 0;
 }
 
 .name-time {
     margin-top: 20px;
+    background-color: rgba(248, 249, 252, 0.91);
+    padding: 15px;
 }
 #confirm-button {
     background-color: white; /* 白色背景 */
     color: blue; /* 蓝色文字 */
     padding: 10px 20px; /* 按钮内边距 */
     border: 2px solid rgb(128, 128, 128); /* 2像素蓝色边框 */
-    border-radius: 5px; /* 圆角 */
+    border-radius: 8px; /* 圆角 */
     text-align: center; /* 文字居中 */
     text-decoration: none; /* 文字无下划线 */
     display: inline-block; /* 行内块元素 */

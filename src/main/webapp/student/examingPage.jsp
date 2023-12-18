@@ -16,8 +16,20 @@
 <div class="score-box">
     <h1>考试进行中</h1>
     <div class="name-time">
-        <p>姓名：${sessionScope.username}</p>
-        <p>考试时间：${sessionScope.exam_date}&nbsp;至&nbsp; ${sessionScope.exam_end}</p>
+        <table>
+            <tr>
+                <td>姓名：${sessionScope.username}</td><td></td>
+            </tr>
+            <tr>
+                <td>考试时间：</td><td>${sessionScope.exam_date}</td>
+            </tr>
+            <tr>
+                <td></td><td style="text-align: center">至</td>
+            </tr>
+            <tr>
+                <td></td><td>${sessionScope.exam_end}</td>
+            </tr>
+        </table>
     </div>
     <div >
         <form action="<c:url value="/student/exam-page-servlet"/>" method="post">
