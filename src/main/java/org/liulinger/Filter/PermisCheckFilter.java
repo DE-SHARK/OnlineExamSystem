@@ -19,7 +19,7 @@ public class PermisCheckFilter implements Filter {
         // 获取当前请求的路径
         String path = httpRequest.getRequestURI().substring(httpRequest.getContextPath().length());
         //某些页面不进行拦截
-        if ("/".equals(path)||"/login.jsp".equals(path) || "/LoginServlet".equals(path) || "/CaptchaImageServlet".equals(path) || "/Register.jsp".equals(path)) {
+        if ("/".equals(path)||"/login.jsp".equals(path) || "/LoginServlet".equals(path) || "/CaptchaImageServlet".equals(path) || "/Register.jsp".equals(path) || "/ModifyPassword.jsp".equals(path)) {
             chain.doFilter(request, response);
             return;
         }
