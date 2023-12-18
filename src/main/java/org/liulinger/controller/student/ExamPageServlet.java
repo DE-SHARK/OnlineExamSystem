@@ -1,6 +1,5 @@
-package org.liulinger.controller;
+package org.liulinger.controller.student;
 
-import com.mysql.cj.Session;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;

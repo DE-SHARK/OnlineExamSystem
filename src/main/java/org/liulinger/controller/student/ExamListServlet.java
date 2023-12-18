@@ -1,4 +1,4 @@
-package org.liulinger.controller;
+package org.liulinger.controller.student;
 
 
 import jakarta.servlet.RequestDispatcher;
