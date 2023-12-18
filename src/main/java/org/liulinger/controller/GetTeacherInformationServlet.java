@@ -17,8 +17,8 @@ import org.liulinger.Service.StudentInformationService;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/GetStudentInformationServlet")
-public class GetStudentInformationServlet extends HttpServlet {
+@WebServlet("/GetTeacherInformationServlet")
+public class GetTeacherInformationServlet extends HttpServlet {
     private StudentInformationService studentInformationService;
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -39,7 +39,7 @@ public class GetStudentInformationServlet extends HttpServlet {
 
             req.setAttribute("list",list);
 
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/student/studentInformation.jsp");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/teacher/teacherInformation.jsp");
             dispatcher.forward(req, resp);
         }
         else{

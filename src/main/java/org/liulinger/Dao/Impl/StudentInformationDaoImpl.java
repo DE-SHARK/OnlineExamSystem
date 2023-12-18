@@ -32,9 +32,9 @@ public class StudentInformationDaoImpl implements StudentInformationDao {
                     String resultSex = resultSet.getString("sex");
 
                     String resultAvatar_url = "/image/v2.jpg";
-                    if(resultSet.getString("avatar_url") != null){
-                        resultAvatar_url = resultSet.getString("avatar_url");
-                    }
+//                    if(resultSet.getString("avatar_url") != null){
+//                        resultAvatar_url = resultSet.getString("avatar_url");
+//                    }
 //                    String resultAvatar_url = resultSet.getString("avatar_url");
 
                     StudentInformationBean stuInform = new StudentInformationBean(
@@ -58,6 +58,19 @@ public class StudentInformationDaoImpl implements StudentInformationDao {
             String hashedPassword = BCrypt.hashpw(password,BCrypt.gensalt());
             preparedStatement.setString(1,hashedPassword);
 //            preparedStatement.setString(1,password);
+            preparedStatement.setString(2,uid);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void updateAvatar_url(String uid, String avatar_url) {
+        String sql = "UPDATE users SET avatar_url = ? WHERE uid = ?";
+        try(Connection connection = JDBCUtils.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,avatar_url);
             preparedStatement.setString(2,uid);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {

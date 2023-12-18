@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8"  %>
 <html>
 <head>
-    <link rel="shortcut icon" href="image/ExamTitleIcon.ico">
     <title>This is Login Page</title>
 </head>
 <link rel="stylesheet" href="css/LoginStyle.css" type="text/css">

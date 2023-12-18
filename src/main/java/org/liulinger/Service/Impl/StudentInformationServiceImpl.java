@@ -22,4 +22,9 @@ public class StudentInformationServiceImpl implements StudentInformationService 
     public void updatePassword(String uid, String password) {
         studentInformationDao.updatePassword(uid,password);
     }
+
+    @Override
+    public void updateAvatar_url(String uid, String avatar_url) {
+        studentInformationDao.updateAvatar_url(uid, avatar_url);
+    }
 }
