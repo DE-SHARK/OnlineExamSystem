@@ -1,4 +1,4 @@
-package org.liulinger.controller;
+package org.liulinger.controller.admin.management.teacher;
 
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;

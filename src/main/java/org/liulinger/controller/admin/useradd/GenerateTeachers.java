@@ -1,13 +1,13 @@
-package org.liulinger.controller;
+package org.liulinger.controller.admin.useradd;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.ServletContext;
 import org.liulinger.Dao.Impl.UserDaoImpl;
 import org.liulinger.Dao.UserDao;
 import org.liulinger.Service.GenerateService;
@@ -15,8 +15,8 @@ import org.liulinger.Service.Impl.GenerateServiceImpl;
 
 import java.io.IOException;
 
-@WebServlet("/admin/generate-students")
-public class GenerateStudents extends HttpServlet {
+@WebServlet("/admin/generate-teachers")
+public class GenerateTeachers extends HttpServlet {
 
     private GenerateService generateService;
 
@@ -38,10 +38,10 @@ public class GenerateStudents extends HttpServlet {
         // 获取输入的基本信息
         String uidStart = req.getParameter("uidStart");
         try {
-            int numbers = Integer.parseInt(req.getParameter("numberOfStudents"));
+            int numbers = Integer.parseInt(req.getParameter("numberOfTeachers"));
 
             // 执行随机添加学生方法
-            generateService.doGenerate(uidStart, numbers ,1);
+            generateService.doGenerate(uidStart, numbers ,2);
 
             // 获取成功消息
             String successMessage = generateService.getSuccessMessage();
@@ -50,13 +50,13 @@ public class GenerateStudents extends HttpServlet {
             req.setAttribute("successMessage", successMessage);
 
             // 转发到一个包含成功消息的页面
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/student-management");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/admin/teacher-management");
             dispatcher.forward(req, resp);
 
         } catch (NumberFormatException e) {
 
             // 将错误消息放入请求属性中
-            req.setAttribute("errorMessage", "输入的学生数不是有效的整数。请提供有效的整数值。");
+            req.setAttribute("errorMessage", "输入的教师数不是有效的整数。请提供有效的整数值。");
 
             // 转发到一个包含错误消息的页面
             RequestDispatcher dispatcher = req.getRequestDispatcher("/errorPage.jsp");
