@@ -11,6 +11,7 @@
     <title>No Permission To Access</title>
 </head>
 <body>
-    <h1 style="text-align: center">你无权访问！</h1>
+    <h1 style="text-align: center; font-size: 50px">你无权访问！</h1>
+    <img src="./image/you.jpg" alt="dog pointing you" style="display: block; margin:0 auto">
 </body>
 </html>
