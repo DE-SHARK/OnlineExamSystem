@@ -13,7 +13,7 @@ import org.liulinger.Service.Impl.GetExamServiceImpl;
 import java.io.FileWriter;
 import java.io.IOException;
 
-@WebServlet("/SendStudentAnswerServlet")
+@WebServlet("/student/SendStudentAnswerServlet")
 public class SendStudentAnswerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

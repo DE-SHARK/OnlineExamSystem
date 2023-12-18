@@ -12,12 +12,13 @@
     <script src="../js/jquery-1.8.0.min.js"></script>
     <script>
         $(function (){
+            // var exam_url = "C:/Study_Information/git本地仓库/OnlineExamSystem/math_exam.json";
             $(document).ready(function (){
-                <%--var stu_id = ${sessionScope.stu_id};--%>
-                <%--var exam_url = ${sessionScope.exam_url};--%>
-                $.post("/StudentExamServlet","exam_url=C:/Study_Information/git本地仓库/OnlineExamSystem/math_exam.json",function (rs){
+                var url = "${sessionScope.testpaper_url}";
+                $.post("/teacher/StudentExamServlet", {"exam_url": url}, function (rs) {
                     var questions = rs.questions;
-                    var answers =rs["${sessionScope.stu_id}"];
+                    <%--var answers =rs["${sessionScope.stu_id}"];--%>
+                    var answers = rs["2100502101"];
 
                     for (var i = 0; i < questions.length; i++) {
                         var topicValue = questions[i].topic;

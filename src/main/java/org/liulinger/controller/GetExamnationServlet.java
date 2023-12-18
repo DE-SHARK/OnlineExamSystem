@@ -10,7 +10,7 @@ import org.liulinger.Service.Impl.GetExamServiceImpl;
 
 import java.io.IOException;
 
-@WebServlet("/GetExamnationServlet")
+@WebServlet("/student/GetExamnationServlet")
 public class GetExamnationServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -20,7 +20,7 @@ public class GetExamnationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //获得试卷url
-        String url = request.getParameter("examurl");
+        String url = request.getParameter("exam_url");
 
         if (url != null) {
             // 实例化GetExamServiceImpl对象

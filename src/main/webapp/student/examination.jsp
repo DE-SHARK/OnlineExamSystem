@@ -6,9 +6,8 @@
     <script>
         $(function() {
             $(document).ready(function () {
-                alert("sda")
-                var url = "${sessionScope.testpaper_url}"
-                $.post("/GetExamnationServlet", {"examurl": url}, function (rs) {
+                var url = "${sessionScope.testpaper_url}";
+                $.post("/student/GetExamnationServlet", {"exam_url": url}, function (rs) {
                     var questions = rs.questions;
                     $("#questionsLength").val(questions.length);
 
