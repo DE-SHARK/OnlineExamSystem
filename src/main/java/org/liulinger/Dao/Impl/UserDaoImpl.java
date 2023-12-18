@@ -29,7 +29,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void addUser(UserBean user) {
+    public boolean addUser(UserBean user) {
 
         String sql = "INSERT INTO users (uid, username, password, permission, sex) VALUES (?, ?, ?, ?, ?)";
         try (Connection connection = JDBCUtils.getConnection()) {
@@ -39,11 +39,11 @@ public class UserDaoImpl implements UserDao {
             preparedStatement.setString(3, BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
             preparedStatement.setInt(4, user.getPermission());
             preparedStatement.setString(5, user.getSex());
-            preparedStatement.executeUpdate();
+            int rowsAffected = preparedStatement.executeUpdate();
+            return rowsAffected > 0;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     @Override

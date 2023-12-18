@@ -20,7 +20,7 @@
             // 发送AJAX请求
             $.ajax({
                 type: "POST",
-                url: "course-add", // 替换为你的Servlet URL
+                url: "course-add",
                 data: formData,
                 success: function(response) {
                     // 返回添加结果

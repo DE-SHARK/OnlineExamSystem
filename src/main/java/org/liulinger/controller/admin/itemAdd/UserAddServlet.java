@@ -5,38 +5,32 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.liulinger.Bean.UserBean;
-import org.liulinger.Service.admin.UserAddService;
+import org.liulinger.Service.admin.ItemAddService;
 
 import java.io.IOException;
 
-public class UserAddServlet extends HttpServlet {
+public abstract class UserAddServlet<T> extends HttpServlet {
 
-    private UserAddService userAddService;
+    private ItemAddService<T> itemAddService;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-    }
 
-    protected void setUserAddService(UserAddService userAddService) {
-        this.userAddService = userAddService;
+        // 进行依赖注入
+        itemAddService = createItemAddService();
     }
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        // 获取用户输入
-        String uid = req.getParameter("uid");
-        String name = req.getParameter("name");
-        String sex  = req.getParameter("sex");
-
-        UserBean user = new UserBean();
-        user.setUid(uid);
-        user.setUsername(name);
-        user.setSex(sex);
-
-        // 调用 Service 操作
-        userAddService.userAdd(user);
+        handleRequest(req, resp);
     }
 
+    protected abstract ItemAddService<T> createItemAddService();
+
+    abstract void handleRequest(HttpServletRequest req, HttpServletResponse resp) throws IOException;
+
+    public ItemAddService<T> getItemAddService() {
+        return itemAddService;
+    }
 }

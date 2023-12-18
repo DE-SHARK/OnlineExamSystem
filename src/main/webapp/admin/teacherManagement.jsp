@@ -11,14 +11,29 @@
 <head>
     <title>教师管理页面</title>
     <link href="../css/TeacherManagementStyle.css" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- 添加JavaScript代码 -->
+    <script>
+        function submitForm() {
+            // 使用jQuery获取表单数据
+            var formData = $("#teacherForm").serialize();
+
+            // 发送AJAX请求
+            $.ajax({
+                type: "POST",
+                url: "teacher-add",
+                data: formData,
+                success: function(response) {
+                    // 返回添加结果
+                    $("#successMessage").text(response);
+                }
+            });
+        }
+    </script>
 </head>
 <body>
     <h2>教师管理页面</h2>
-
     <h2>教师列表</h2>
-
-    <%--    EL 表达式--%>
-    <%--    ${users}--%>
 
     <table>
         <thead>
@@ -63,7 +78,7 @@
 
     <h2>添加教师</h2>
 
-    <form action="teacher-add" method="post">
+    <form id="teacherForm" action="" method="post" onsubmit="submitForm(); return false;">
         <label for="uid">教师号：</label>
         <input type="text" id="uid" name="uid" required>
         <br>
@@ -77,7 +92,9 @@
         <br>
 
         <input type="submit" value="添加">
-    </form><br>
+    </form>
+    <!-- 添加一个用于显示成功消息的元素 -->
+    <p id="successMessage"></p><br>
 
     <p>随机生成一些学生数据</p>
 

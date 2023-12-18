@@ -2,9 +2,9 @@ package org.liulinger.Service.admin.impl;
 
 import org.liulinger.Bean.UserBean;
 import org.liulinger.Dao.UserDao;
-import org.liulinger.Service.admin.UserAddService;
+import org.liulinger.Service.admin.ItemAddService;
 
-public class TeacherAddServiceImpl implements UserAddService {
+public class TeacherAddServiceImpl implements ItemAddService<UserBean> {
 
     private final UserDao userDao;
 
@@ -13,7 +13,7 @@ public class TeacherAddServiceImpl implements UserAddService {
     }
 
     @Override
-    public void userAdd(UserBean user) {
+    public boolean addItem(UserBean user) {
 
         // 获取教师号最后六位数字并写入作密码
         user.setPassword(getLastSixDigits(user.getUid()));
@@ -21,8 +21,7 @@ public class TeacherAddServiceImpl implements UserAddService {
         user.setPermission(2);
 
         // 执行添加操作
-        userDao.addUser(user);
-
+        return userDao.addUser(user);
     }
 
     // 获取最后六位数字的方法

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UserDao {
 
-    void addUser(UserBean user);
+    boolean addUser(UserBean user);
 
     void updateUser(UserBean user);
 
