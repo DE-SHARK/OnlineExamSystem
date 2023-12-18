@@ -35,7 +35,8 @@ public class PermisCheckFilter implements Filter {
             // 管理员权限
             chain.doFilter(request, response);
         }else {
-            System.out.println("无权查看");
+            // 没有权限，转发到权限错误页面
+            request.getRequestDispatcher("/noPermission.jsp").forward(request, response);
         }
     }
 
