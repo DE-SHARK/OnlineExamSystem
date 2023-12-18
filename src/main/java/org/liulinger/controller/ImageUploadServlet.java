@@ -1,4 +1,4 @@
-package org.liulinger.controller.imageUpAndDown;
+package org.liulinger.controller;
 
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
