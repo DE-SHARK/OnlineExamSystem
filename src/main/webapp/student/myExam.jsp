@@ -36,9 +36,9 @@
             <c:forEach var="exam" items="${requestScope.examList}" varStatus="loop">
                 <tr>
                     <td>${loop.index + 1}</td>
-                    <td>${exam.exam_name}</td>
-                    <td>${exam.exam_date}&nbsp;至&nbsp;${exam.exam_end}</td>
-                    <td>${exam.time_limits}</td>
+                    <td>${exam.examName}</td>
+                    <td>${exam.examDate}&nbsp;至&nbsp;${exam.examEnd}</td>
+                    <td>${exam.timeLimits}</td>
                     <c:if test="${exam.status == 0}">
                         <td>未完成</td>
                     </c:if>
@@ -53,13 +53,13 @@
                     </c:if>
                     <td>
                         <form action="<c:url value="/student/exam-page-servlet"/>" method="post">
-                            <input type="hidden" name="exam_date" value="${exam.exam_date}">
-                            <input type="hidden" name="exam_end" value="${exam.exam_end}">
-                            <input type="hidden" name="exam_id" value="${exam.exam_id}">
+                            <input type="hidden" name="exam_date" value="${exam.examDate}">
+                            <input type="hidden" name="exam_end" value="${exam.examEnd}">
+                            <input type="hidden" name="exam_id" value="${exam.examId}">
                             <input type="hidden" name="status" value="${exam.status}">
                             <input type="hidden" name="score" value="${exam.score}">
-                            <input type="hidden" name="testpaper_url" value="${exam.testpaper_url}">
-                            <input type="hidden" name="course_id" value="${exam.course_id}">
+                            <input type="hidden" name="testpaper_url" value="${exam.testPaperUrl}">
+                            <input type="hidden" name="course_id" value="${exam.courseId}">
                             <input type="submit" value="查看">
                         </form>
                     </td>

@@ -3,32 +3,32 @@ package org.liulinger.Bean;
 import java.sql.Timestamp;
 
 public class ExamBean {
-    private String stu_id;
-    private int exam_id;
-    private String exam_name;
-    private Timestamp exam_date;
-    private Timestamp exam_end;
-    private int time_limits;
+    private String stuId;
+    private int examId;
+    private String examName;
+    private Timestamp examDate;
+    private Timestamp examEnd;
+    private int timeLimits;
     private double score;
     private int status;
-    private String testpaper_url;
+    private String testPaperUrl;
 
-    private int course_id;
+    private int courseId;
 
     public ExamBean() {
     }
 
-    public ExamBean(String stu_id, int exam_id, String exam_name, Timestamp exam_date, Timestamp exam_end, int time_limits, double score, int status, String testpaper_url, int course_id) {
-        this.stu_id = stu_id;
-        this.exam_id = exam_id;
-        this.exam_name = exam_name;
-        this.exam_date = exam_date;
-        this.exam_end = exam_end;
-        this.time_limits = time_limits;
+    public ExamBean(String stuId, int examId, String examName, Timestamp examDate, Timestamp examEnd, int timeLimits, double score, int status, String testPaperUrl, int course_id) {
+        this.stuId = stuId;
+        this.examId = examId;
+        this.examName = examName;
+        this.examDate = examDate;
+        this.examEnd = examEnd;
+        this.timeLimits = timeLimits;
         this.score = score;
         this.status = status;
-        this.testpaper_url = testpaper_url;
-        this.course_id = course_id;
+        this.testPaperUrl = testPaperUrl;
+        this.courseId = course_id;
     }
 //    public ExamBean(String stu_id, int exam_id, String exam_name, Timestamp exam_date, Timestamp exam_end, int time_limits, double score, int status) {
 //        this.stu_id = stu_id;
@@ -41,44 +41,44 @@ public class ExamBean {
 //        this.status = status;
 //    }
 
-    public String getStu_id() {
-        return stu_id;
+    public String getStuId() {
+        return stuId;
     }
 
-    public void setStu_id(String stu_id) {
-        this.stu_id = stu_id;
+    public void setStuId(String stuId) {
+        this.stuId = stuId;
     }
 
-    public int getExam_id() {
-        return exam_id;
+    public int getExamId() {
+        return examId;
     }
 
-    public void setExam_id(int exam_id) {
-        this.exam_id = exam_id;
+    public void setExamId(int examId) {
+        this.examId = examId;
     }
 
-    public String getExam_name() {
-        return exam_name;
+    public String getExamName() {
+        return examName;
     }
 
-    public void setExam_name(String exam_name) {
-        this.exam_name = exam_name;
+    public void setExamName(String examName) {
+        this.examName = examName;
     }
 
-    public Timestamp getExam_date() {
-        return exam_date;
+    public Timestamp getExamDate() {
+        return examDate;
     }
 
-    public void setExam_date(Timestamp exam_date) {
-        this.exam_date = exam_date;
+    public void setExamDate(Timestamp examDate) {
+        this.examDate = examDate;
     }
 
-    public int getTime_limits() {
-        return time_limits;
+    public int getTimeLimits() {
+        return timeLimits;
     }
 
-    public void setTime_limits(int time_limits) {
-        this.time_limits = time_limits;
+    public void setTimeLimits(int timeLimits) {
+        this.timeLimits = timeLimits;
     }
 
     public double getScore() {
@@ -97,25 +97,25 @@ public class ExamBean {
         this.status = status;
     }
 
-    public Timestamp getExam_end() {
-        return exam_end;
+    public Timestamp getExamEnd() {
+        return examEnd;
     }
 
-    public void setExam_end(Timestamp exam_end) {
-        this.exam_end = exam_end;
+    public void setExamEnd(Timestamp examEnd) {
+        this.examEnd = examEnd;
     }
 
-    public String getTestpaper_url() {
-        return testpaper_url;
+    public String getTestPaperUrl() {
+        return testPaperUrl;
     }
 
-    public void setTestpaper_url(String testpaper_url) {
-        this.testpaper_url = testpaper_url;
-    }public int getCourse_id() {
-        return course_id;
+    public void setTestPaperUrl(String testPaperUrl) {
+        this.testPaperUrl = testPaperUrl;
+    }public int getCourseId() {
+        return courseId;
     }
 
-    public void setCourse_id(int course_id) {
-        this.course_id = course_id;
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 }
