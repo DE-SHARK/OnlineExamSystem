@@ -1,4 +1,4 @@
-package org.liulinger.controller.admin.useradd;
+package org.liulinger.controller.admin.itemAdd;
 
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
@@ -7,12 +7,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.liulinger.Dao.Impl.UserDaoImpl;
 import org.liulinger.Dao.UserDao;
-import org.liulinger.Service.admin.impl.StudentAddServiceImpl;
+import org.liulinger.Service.admin.impl.TeacherAddServiceImpl;
 
 import java.io.IOException;
 
-@WebServlet("/admin/student-add")
-public class StudentAddServlet extends UserAddServlet {
+@WebServlet("/admin/teacher-add")
+public class TeacherAddServlet extends UserAddServlet {
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -20,11 +20,11 @@ public class StudentAddServlet extends UserAddServlet {
 
         // 在这里进行依赖注入
         UserDao userDao = new UserDaoImpl();
-        setUserAddService(new StudentAddServiceImpl(userDao));
+        setUserAddService(new TeacherAddServiceImpl(userDao));
     }
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-
+        super.doPost(req, resp);
     }
 }

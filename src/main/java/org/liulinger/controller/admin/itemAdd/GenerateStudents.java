@@ -1,4 +1,4 @@
-package org.liulinger.controller.admin.useradd;
+package org.liulinger.controller.admin.itemAdd;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletConfig;
