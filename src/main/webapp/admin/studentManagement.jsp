@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>学生管理页面</title>
+    <link href="../css/StudentManagementStyle.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <h2>学生管理页面</h2>

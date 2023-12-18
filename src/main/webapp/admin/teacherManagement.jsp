@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>教师管理页面</title>
+    <link href="../css/TeacherManagementStyle.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <h2>教师管理页面</h2>
