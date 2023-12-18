@@ -1,7 +1,7 @@
-package org.liulinger.Dao.Impl;
+package org.liulinger.Dao.admin.impl;
 
 import org.liulinger.Bean.CourseBean;
-import org.liulinger.Dao.CourseDao;
+import org.liulinger.Dao.admin.CourseDao;
 import org.liulinger.Utils.JDBCUtils;
 
 import java.sql.Connection;

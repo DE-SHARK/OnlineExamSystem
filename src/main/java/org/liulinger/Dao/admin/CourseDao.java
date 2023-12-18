@@ -1,4 +1,4 @@
-package org.liulinger.Dao;
+package org.liulinger.Dao.admin;
 
 import org.liulinger.Bean.CourseBean;
 
