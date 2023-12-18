@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.liulinger.Bean.UserBean;
-import org.liulinger.Service.UserAddService;
+import org.liulinger.Service.admin.UserAddService;
 
 import java.io.IOException;
 

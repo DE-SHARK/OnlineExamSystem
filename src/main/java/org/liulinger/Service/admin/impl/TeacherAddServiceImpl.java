@@ -1,14 +1,14 @@
-package org.liulinger.Service.Impl;
+package org.liulinger.Service.admin.impl;
 
 import org.liulinger.Bean.UserBean;
 import org.liulinger.Dao.UserDao;
-import org.liulinger.Service.UserAddService;
+import org.liulinger.Service.admin.UserAddService;
 
-public class StudentAddServiceImpl implements UserAddService {
+public class TeacherAddServiceImpl implements UserAddService {
 
     private final UserDao userDao;
 
-    public StudentAddServiceImpl(UserDao userDao) {
+    public TeacherAddServiceImpl(UserDao userDao) {
         this.userDao = userDao;
     }
 
@@ -18,7 +18,7 @@ public class StudentAddServiceImpl implements UserAddService {
         // 获取教师号最后六位数字并写入作密码
         user.setPassword(getLastSixDigits(user.getUid()));
         // 设置权限
-        user.setPermission(1);
+        user.setPermission(2);
 
         // 执行添加操作
         userDao.addUser(user);

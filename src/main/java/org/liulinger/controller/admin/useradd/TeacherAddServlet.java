@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.liulinger.Dao.Impl.UserDaoImpl;
 import org.liulinger.Dao.UserDao;
-import org.liulinger.Service.Impl.TeacherAddServiceImpl;
+import org.liulinger.Service.admin.impl.TeacherAddServiceImpl;
 
 import java.io.IOException;
 

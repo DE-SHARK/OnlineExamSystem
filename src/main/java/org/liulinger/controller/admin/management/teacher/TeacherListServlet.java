@@ -9,8 +9,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.liulinger.Bean.UserBean;
 import org.liulinger.Dao.Impl.UserDaoImpl;
 import org.liulinger.Dao.UserDao;
-import org.liulinger.Service.Impl.TeacherListServiceImpl;
-import org.liulinger.Service.UserListService;
+import org.liulinger.Service.admin.impl.TeacherListServiceImpl;
+import org.liulinger.Service.admin.UserListService;
 
 import java.io.IOException;
 import java.util.List;

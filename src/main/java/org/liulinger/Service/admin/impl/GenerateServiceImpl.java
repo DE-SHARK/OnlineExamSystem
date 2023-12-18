@@ -1,11 +1,12 @@
-package org.liulinger.Service.Impl;
+package org.liulinger.Service.admin.impl;
 
 import com.iteye.weimingtom.namegen.NameGen;
 import jakarta.servlet.ServletContext;
 import org.liulinger.Bean.UserBean;
 import org.liulinger.Dao.UserDao;
+import org.liulinger.Service.admin.GenerateService;
 
-public class GenerateServiceImpl implements org.liulinger.Service.GenerateService {
+public class GenerateServiceImpl implements GenerateService {
 
     private String successMessage;  // 成功消息字段
 

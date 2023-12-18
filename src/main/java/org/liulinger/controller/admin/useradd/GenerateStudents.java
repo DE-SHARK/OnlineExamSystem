@@ -10,8 +10,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.ServletContext;
 import org.liulinger.Dao.Impl.UserDaoImpl;
 import org.liulinger.Dao.UserDao;
-import org.liulinger.Service.GenerateService;
-import org.liulinger.Service.Impl.GenerateServiceImpl;
+import org.liulinger.Service.admin.GenerateService;
+import org.liulinger.Service.admin.impl.GenerateServiceImpl;
 
 import java.io.IOException;
 

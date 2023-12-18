@@ -1,8 +1,8 @@
-package org.liulinger.Service.Impl;
+package org.liulinger.Service.admin.impl;
 
 import org.liulinger.Bean.UserBean;
 import org.liulinger.Dao.UserDao;
-import org.liulinger.Service.UserListService;
+import org.liulinger.Service.admin.UserListService;
 
 import java.util.List;
 
