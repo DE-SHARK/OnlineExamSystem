@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import java.io.IOException;
 @WebFilter("/*")
 public class PermisCheckFilter implements Filter {
-    private static final String[] ALLOWED_EXTENSIONS = {"CourseManagement.css", ".png", ".jpg", ".jpeg", ".gif"};
+    private static final String[] ALLOWED_EXTENSIONS = {".css", ".png", ".jpg", ".jpeg", ".gif"};
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         int permission = -1;
