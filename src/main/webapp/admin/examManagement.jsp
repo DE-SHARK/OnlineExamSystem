@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>考试管理页面</title>
+    <link href="../css/ExamManagement.css" rel="stylesheet" type="text/css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <!-- 添加JavaScript代码 -->
     <script>
