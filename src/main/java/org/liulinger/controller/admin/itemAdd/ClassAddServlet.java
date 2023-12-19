@@ -30,7 +30,7 @@ public class ClassAddServlet extends ItemAddServlet<ClassBean> {
         boolean success = getItemAddService().addItem(classBean);
 
         // 设置成功或失败消息
-        String message = success ? "课程添加成功" : "课程添加失败";
+        String message = success ? "班级添加成功" : "班级添加失败";
 
         resp.getWriter().write(message);
     }

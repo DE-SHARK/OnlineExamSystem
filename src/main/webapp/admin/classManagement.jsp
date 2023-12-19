@@ -14,7 +14,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <!-- 添加JavaScript代码 -->
     <script>
-        function submitForm() {
+        function submitClassForm() {
             // 使用jQuery获取表单数据
             var formData = $("#classForm").serialize();
 
@@ -25,7 +25,22 @@
                 data: formData,
                 success: function(response) {
                     // 返回添加结果
-                    $("#successMessage").text(response);
+                    $("#successMessage1").text(response);
+                }
+            });
+        }
+        function submitStudentClassForm() {
+            // 使用jQuery获取表单数据
+            var formData = $("#studentClassForm").serialize();
+
+            // 发送AJAX请求
+            $.ajax({
+                type: "POST",
+                url: "student-class-add", // 替换为你的Servlet URL
+                data: formData,
+                success: function(response) {
+                    // 返回添加结果
+                    $("#successMessage2").text(response);
                 }
             });
         }
@@ -70,7 +85,7 @@
 
     <h2>添加班级</h2>
 
-    <form id="classForm" action="" method="post" onsubmit="submitForm(); return false;">
+    <form id="classForm" action="" method="post" onsubmit="submitClassForm(); return false;">
         <label for="name">班级名：</label>
         <input type="text" id="name" name="name" required>
         <br>
@@ -78,6 +93,24 @@
         <input type="submit" value="添加">
     </form>
     <!-- 添加一个用于显示成功消息的元素 -->
-    <p id="successMessage"></p>
+    <p id="successMessage1"></p>
+
+    <h2>为学生分配班级</h2>
+
+    <form id="studentClassForm" action="" method="post" onsubmit="submitStudentClassForm(); return false;">
+        <label for="uidStart">学号起始：</label>
+        <input type="text" id="uidStart" name="uidStart" required>
+        <br>
+        <label for="numberOfStudents">学生数：</label>
+        <input type="number" id="numberOfStudents" name="numberOfStudents" required>
+        <br>
+        <label for="classId">班级ID：</label>
+        <input type="number" id="classId" name="classId" required>
+        <br>
+        <input type="submit" value="添加">
+    </form>
+    <!-- 添加一个用于显示成功消息的元素 -->
+    <p id="successMessage2"></p>
+
 </body>
 </html>
