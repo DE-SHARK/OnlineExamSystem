@@ -1,4 +1,4 @@
-package org.liulinger.controller.admin.itemAdd;
+package org.liulinger.controller.admin.itemAdd.generate;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletConfig;
