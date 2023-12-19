@@ -9,7 +9,7 @@ import java.io.IOException;
 
 @WebFilter("/*")
 public class LoginCheckFilter implements Filter {
-    private static final String[] ALLOWED_EXTENSIONS = {".css", ".png", ".jpg", ".jpeg", ".gif"};
+    private static final String[] ALLOWED_EXTENSIONS = {"CourseManagement.css", ".png", ".jpg", ".jpeg", ".gif"};
     @Override
     public void init(FilterConfig filterConfig) {
     }
