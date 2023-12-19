@@ -12,4 +12,5 @@ public interface ClassDao {
 
     boolean addClass(ClassBean classBean);
 
+    int getClassIdByUid(String uid);
 }

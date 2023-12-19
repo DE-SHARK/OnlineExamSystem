@@ -12,4 +12,6 @@ public interface ExamDao {
 
     boolean addExam(ExamBean exam);
 
+    List<ExamBean> getExamsByUid(int offset, int limit, int courseId);
+
 }

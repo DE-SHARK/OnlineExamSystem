@@ -78,4 +78,24 @@ public class ClassDaoImpl implements ClassDao {
 
         return classBean;
     }
+
+    @Override
+    public int getClassIdByUid(String uid) {
+        try (Connection connection = JDBCUtils.getConnection()) {
+            String sql = "SELECT class_id FROM studentClass WHERE stu_id = ?";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                preparedStatement.setString(1, uid);
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    // 处理结果集
+                    if (resultSet.next()) {
+                        return resultSet.getInt(1);
+                    } else {
+                        return 0;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
