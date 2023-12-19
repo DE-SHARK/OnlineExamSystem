@@ -45,10 +45,10 @@
                     <c:if test="${exam.status == 1}">
                         <td>已完成</td>
                     </c:if>
-                    <c:if test="${exam.status == 0}">
+                    <c:if test="${exam.status == 0 || exam.score == -1}">
                         <td>---</td>
                     </c:if>
-                    <c:if test="${exam.status == 1}">
+                    <c:if test="${exam.status == 1 && exam.score != -1}">
                         <td>${exam.score}</td>
                     </c:if>
                     <td>

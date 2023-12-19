@@ -57,7 +57,7 @@ public class ExamListDaoImpl implements ExamListDao {
                         long timestampMillis = (exam_date != null) ?exam_date.getTime() : 0;
                         long newTimestampMillis = timestampMillis + (long) time_limits * 60 * 1000; // 将分钟转换为毫秒
                         Timestamp exam_end = new Timestamp(newTimestampMillis);
-                        double score = resultSet.getDouble("score");
+                        double score = (resultSet.getObject("score") != null) ? resultSet.getDouble("score") : -1;
                         int status = resultSet.getInt("status");
                         String testpaper_url = resultSet.getString("testpaper_url");
                         int course_id = resultSet.getInt("course_id");
@@ -100,7 +100,7 @@ public class ExamListDaoImpl implements ExamListDao {
         String sql = "SELECT COUNT(*) FROM ( " +
                 "                  SELECT exams.id AS exam_id, exams.name AS exam_name," +
                 "                         exam_date, time_limits, score, status, testpaper_url, exams.course_id" +
-                "                  FROM users\n" +
+                "                  FROM users" +
                 "                           LEFT JOIN studentClass ON studentClass.stu_id = users.uid" +
                 "                           LEFT JOIN exams ON studentClass.class_id = exams.class_id" +
                 "                           LEFT JOIN grades ON exams.id = grades.exam_id AND users.uid = grades.stu_id" +
@@ -111,7 +111,7 @@ public class ExamListDaoImpl implements ExamListDao {
                 "                  UNION" +
                 "                  SELECT exams.id AS exam_id, exams.name AS exam_name," +
                 "                         exam_date, time_limits, score, status, testpaper_url, exams.course_id" +
-                "                  FROM users\n" +
+                "                  FROM users" +
                 "                           LEFT JOIN studentSecondClass ON studentSecondClass.stu_id = users.uid" +
                 "                           LEFT JOIN exams ON exams.second_class_id = studentSecondClass.class_id" +
                 "                           LEFT JOIN grades ON exams.id = grades.exam_id AND users.uid = grades.stu_id" +

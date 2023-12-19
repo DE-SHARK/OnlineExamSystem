@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: x
@@ -14,7 +15,13 @@
 <body>
     <div class="score-box">
         <h1>考试完成</h1>
-        <span>本次成绩：</span><span id="score">${requestScope.score}</span> <span>分</span>
+        <c:if test="${requestScope.score != -1}">
+            <span>本次成绩：</span><span id="score">${requestScope.score}</span> <span>分</span>
+        </c:if>
+        <c:if test="${requestScope.score == -1}">
+            <span>老师还未批阅</span>
+        </c:if>
+
         <div class="name-time">
             <table>
                 <tr>
