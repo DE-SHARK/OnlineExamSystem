@@ -12,7 +12,7 @@ import org.liulinger.Service.admin.impl.ClassAddServiceImpl;
 import java.io.IOException;
 
 @WebServlet("/admin/class-add")
-public class ClassAddServlet extends UserAddServlet<ClassBean> {
+public class ClassAddServlet extends ItemAddServlet<ClassBean> {
 
     @Override
     protected ItemAddService<ClassBean> createItemAddService() {

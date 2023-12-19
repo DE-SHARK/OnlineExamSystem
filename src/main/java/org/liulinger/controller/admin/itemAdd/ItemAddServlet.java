@@ -9,7 +9,7 @@ import org.liulinger.Service.admin.ItemAddService;
 
 import java.io.IOException;
 
-public abstract class UserAddServlet<T> extends HttpServlet {
+public abstract class ItemAddServlet<T> extends HttpServlet {
 
     private ItemAddService<T> itemAddService;
 
