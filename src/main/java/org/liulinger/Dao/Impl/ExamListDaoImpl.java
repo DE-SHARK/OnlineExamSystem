@@ -19,20 +19,35 @@ public class ExamListDaoImpl implements ExamListDao {
         }
         int start = (pageNo - 1) * pageSize;
         try (Connection connection = JDBCUtils.getConnection()) {
-            String sql = "SELECT exams.id AS exam_id, exams.name AS exam_name, " +
-                    "exam_date, time_limits, score, status, testpaper_url, exams.course_id " +
-                    "FROM users " +
-                    "LEFT JOIN studentClass ON studentClass.stu_id = users.uid " +
-                    "LEFT JOIN exams ON studentClass.class_id = exams.class_id " +
-                    "LEFT JOIN grades ON exams.id = grades.exam_id AND users.uid = grades.stu_id " +
-                    "LEFT JOIN courses ON exams.course_id = courses.id " +
-                    "LEFT JOIN studentExamStatus ON exams.id = studentExamStatus.exam_id AND studentExamStatus.stu_id = users.uid " +
-                    "WHERE users.uid = ? " +
+            String sql = "SELECT * FROM ( " +
+                    "                  SELECT exams.id AS exam_id, exams.name AS exam_name," +
+                    "                         exam_date, time_limits, score, status, testpaper_url, exams.course_id" +
+                    "                  FROM users\n" +
+                    "                           LEFT JOIN studentClass ON studentClass.stu_id = users.uid" +
+                    "                           LEFT JOIN exams ON studentClass.class_id = exams.class_id" +
+                    "                           LEFT JOIN grades ON exams.id = grades.exam_id AND users.uid = grades.stu_id" +
+                    "                           LEFT JOIN courses ON exams.course_id = courses.id" +
+                    "                           LEFT JOIN studentExamStatus ON exams.id = studentExamStatus.exam_id" +
+                    "                      AND studentExamStatus.stu_id = users.uid" +
+                    "                  WHERE users.uid = ?" +
+                    "                  UNION" +
+                    "                  SELECT exams.id AS exam_id, exams.name AS exam_name," +
+                    "                         exam_date, time_limits, score, status, testpaper_url, exams.course_id" +
+                    "                  FROM users\n" +
+                    "                           LEFT JOIN studentSecondClass ON studentSecondClass.stu_id = users.uid" +
+                    "                           LEFT JOIN exams ON exams.second_class_id = studentSecondClass.class_id" +
+                    "                           LEFT JOIN grades ON exams.id = grades.exam_id AND users.uid = grades.stu_id" +
+                    "                           LEFT JOIN courses ON exams.course_id = courses.id" +
+                    "                           LEFT JOIN studentExamStatus ON exams.id = studentExamStatus.exam_id" +
+                    "                      AND studentExamStatus.stu_id = users.uid" +
+                    "                  WHERE users.uid = ?" +
+                    "              ) AS combined_result " +
                     "LIMIT ?, ?";
             try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
                 preparedStatement.setString(1, stu_id);
-                preparedStatement.setInt(2, start);
-                preparedStatement.setInt(3, pageSize);
+                preparedStatement.setString(2, stu_id);
+                preparedStatement.setInt(3, start);
+                preparedStatement.setInt(4, pageSize);
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
                     while (resultSet.next()){
                         int exam_id = resultSet.getInt("exam_id");
@@ -82,17 +97,33 @@ public class ExamListDaoImpl implements ExamListDao {
     @Override
     public int getNumberOfExam(String stu_id) {
         int recordCount = 0;
-        String sql = "SELECT COUNT(*) " +
-                "FROM users " +
-                "LEFT JOIN studentClass ON studentClass.stu_id = users.uid " +
-                "LEFT JOIN exams ON studentClass.class_id = exams.class_id " +
-                "LEFT JOIN grades ON exams.id = grades.exam_id AND users.uid = grades.stu_id " +
-                "LEFT JOIN courses ON exams.course_id = courses.id " +
-                "LEFT JOIN studentExamStatus ON exams.id = studentExamStatus.exam_id AND studentExamStatus.stu_id = users.uid " +
-                "WHERE users.uid = ? ";
+        String sql = "SELECT COUNT(*) FROM ( " +
+                "                  SELECT exams.id AS exam_id, exams.name AS exam_name," +
+                "                         exam_date, time_limits, score, status, testpaper_url, exams.course_id" +
+                "                  FROM users\n" +
+                "                           LEFT JOIN studentClass ON studentClass.stu_id = users.uid" +
+                "                           LEFT JOIN exams ON studentClass.class_id = exams.class_id" +
+                "                           LEFT JOIN grades ON exams.id = grades.exam_id AND users.uid = grades.stu_id" +
+                "                           LEFT JOIN courses ON exams.course_id = courses.id" +
+                "                           LEFT JOIN studentExamStatus ON exams.id = studentExamStatus.exam_id" +
+                "                      AND studentExamStatus.stu_id = users.uid" +
+                "                  WHERE users.uid = ?" +
+                "                  UNION" +
+                "                  SELECT exams.id AS exam_id, exams.name AS exam_name," +
+                "                         exam_date, time_limits, score, status, testpaper_url, exams.course_id" +
+                "                  FROM users\n" +
+                "                           LEFT JOIN studentSecondClass ON studentSecondClass.stu_id = users.uid" +
+                "                           LEFT JOIN exams ON exams.second_class_id = studentSecondClass.class_id" +
+                "                           LEFT JOIN grades ON exams.id = grades.exam_id AND users.uid = grades.stu_id" +
+                "                           LEFT JOIN courses ON exams.course_id = courses.id" +
+                "                           LEFT JOIN studentExamStatus ON exams.id = studentExamStatus.exam_id" +
+                "                      AND studentExamStatus.stu_id = users.uid" +
+                "                  WHERE users.uid = ?" +
+                "              ) AS combined_result ";
         try (Connection connection = JDBCUtils.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
                 preparedStatement.setString(1, stu_id);
+                preparedStatement.setString(2, stu_id);
                 try (ResultSet resultSet = preparedStatement.executeQuery()){
                     if (resultSet.next()) {
                         recordCount = resultSet.getInt(1);
