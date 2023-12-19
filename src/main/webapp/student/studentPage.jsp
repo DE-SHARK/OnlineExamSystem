@@ -10,11 +10,14 @@
     <span class="userinfo">用户名:${sessionScope.username}
         <a href="<c:url value="/ModifyPassword.jsp"/>">修改密码</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../login.jsp">退出</a> </span>
 </div>
+
+<h4>${sessionScope.finishmessage}</h4>
 <div class="centerContainer">
     <div class="leftBar">
         <ul>
             <li><a style="background-color: #c8c8dc" href="<c:url value="/student/exam-list-servlet"/>">我的考试</a></li>
             <li class="negative"><a href="<c:url value="/student/GetStudentInformationServlet"/>">我的信息</a></li>
+            <li ><a href=<c:url value="/student/GetStudentGradeServlet"/>>我的成绩</a></li>
         </ul>
     </div>
     <div class="main">
