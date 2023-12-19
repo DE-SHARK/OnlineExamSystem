@@ -15,7 +15,7 @@ public class GiveGradeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        doPost(req,resp);
     }
 
     @Override
@@ -24,10 +24,14 @@ public class GiveGradeServlet extends HttpServlet {
         String stu_id = (String) request.getSession().getAttribute("stu_id");
         int course_id = (int) request.getSession().getAttribute("course_id");
         int exam_id = (int) request.getSession().getAttribute("exam_id");
+
         ChangeExamStausService changeExamStausService = new ChangeExamStausServiceImpl();
         String result = changeExamStausService.ChangeExamStaus(stu_id, course_id, exam_id, grade);
+        String encodedResult = java.net.URLEncoder.encode(result, "UTF-8");
+
         if (grade != 0) {
-            response.sendRedirect("ChooseExam.jsp?message=" + result);
+
+            response.sendRedirect("ChooseExam.jsp?message=" + encodedResult);
         }
         else {
             response.sendRedirect("ChooseExam.jsp?message=The Student is missing exam");

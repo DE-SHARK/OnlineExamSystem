@@ -7,7 +7,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.liulinger.Service.FinishExamService;
 import org.liulinger.Service.GetExamService;
+import org.liulinger.Service.Impl.FinishExamServiceImpl;
 import org.liulinger.Service.Impl.GetExamServiceImpl;
 
 import java.io.FileWriter;
@@ -44,6 +46,12 @@ public class SendStudentAnswerServlet extends HttpServlet {
             FileWriter writer = new FileWriter(filePath);
             writer.write(jsonObject.toString());
             writer.close();
+            //把对应的考试状态设为已完成
+            FinishExamService finishExamService = new FinishExamServiceImpl();
+            int exam_id = (int) request.getSession().getAttribute("exam_id");
+            String message = finishExamService.FinishExam(exam_id,stu_id);
+            request.getSession().setAttribute("finishmessage",message);
+            response.sendRedirect("studentPage.jsp");
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
