@@ -12,7 +12,13 @@ import java.util.List;
 
 public abstract class ItemListServlet<T> extends HttpServlet {
 
-    private ItemListService<T> itemListService;
+    protected ItemListService<T> itemListService;
+
+    protected final int recordsPerPage = 5; // 每页显示的记录数
+
+    protected int offset; // 偏移量
+
+    protected List<T> itemList; // 列表
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -49,14 +55,11 @@ public abstract class ItemListServlet<T> extends HttpServlet {
             }
         }
 
-        // 每页显示的记录数
-        int recordsPerPage = 5;
-
         // 计算偏移量
-        int offset = (currentPage - 1) * recordsPerPage;
+        offset = (currentPage - 1) * recordsPerPage;
 
         // 获取列表和总记录数
-        List<T> itemList = itemListService.getItems(offset, recordsPerPage);
+        itemList = getItemsMethod();
         int totalItems = itemListService.getTotalItems();
         int totalPages = (int) Math.ceil((double) totalItems / recordsPerPage);
 
@@ -69,10 +72,6 @@ public abstract class ItemListServlet<T> extends HttpServlet {
         // 转发到用户列表页面
         req.getRequestDispatcher(getManagementPage()).forward(req, resp);
     }
-
-    protected abstract ItemListService<T> createItemListService();
-
-    protected abstract String getManagementPage();
 
     private int extractPage(HttpServletRequest request) {
         int currentPage = 1;
@@ -87,5 +86,13 @@ public abstract class ItemListServlet<T> extends HttpServlet {
         }
         return currentPage;
     }
+
+    protected List<T> getItemsMethod() {
+        return itemListService.getItems(offset, recordsPerPage);
+    }
+
+    protected abstract ItemListService<T> createItemListService();
+
+    protected abstract String getManagementPage();
 
 }

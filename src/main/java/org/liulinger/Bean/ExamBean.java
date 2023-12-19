@@ -20,6 +20,14 @@ public class ExamBean {
     private boolean mandatory;
     private int trueClassId;
 
+    public String toString() {
+        return "ExamBean{" +
+                "examName='" + examName + '\'' +
+                ", examDate=" + examDate +
+                ", timeLimits=" + timeLimits +
+                '}';
+    }
+
     public ExamBean() {
     }
 

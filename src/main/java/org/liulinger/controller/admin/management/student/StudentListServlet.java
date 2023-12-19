@@ -21,4 +21,7 @@ public class StudentListServlet extends ItemListServlet<UserBean> {
     protected String getManagementPage() {
         return "/admin/studentManagement.jsp";
     }
+
+
+
 }

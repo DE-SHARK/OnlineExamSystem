@@ -44,13 +44,12 @@
                 <th>是否为必修</th>
                 <th>考试班级</th>
                 <th>考试日期</th>
-                <th>考试时间</th>
+                <th>考试时长</th>
                 <th>试题链接</th>
             </tr>
         </thead>
         <tbody>
         <%-- 遍历用户列表，显示用户信息 --%>
-        <%-- TODO --%>
         <c:forEach var="item" items="${requestScope.itemList}">
             <tr>
                 <td>${item.examId}</td>
@@ -81,10 +80,30 @@
     </div>
 
     <h2>添加考试</h2>
-    <%--TODO--%>
     <form id="examForm" action="" method="post" onsubmit="submitForm(); return false;">
-        <label for="name">班级名：</label>
+        <label for="name">考试名：</label>
         <input type="text" id="name" name="name" required>
+        <br>
+        <label for="courseId">考试科目：</label>
+        <input type="text" id="courseId" name="courseId" required>
+        <br>
+        <label for="mandatory">是否为必修：</label>
+        <select id="mandatory" name="mandatory">
+            <option value="true" selected>是</option>
+            <option value="false">否</option>
+        </select>
+        <br>
+        <label for="trueClassId">考试班级：</label>
+        <input type="text" id="trueClassId" name="trueClassId">
+        <br>
+        <label for="examDate">考试日期：</label>
+        <input type="date" id="examDate" name="examDate">
+        <br>
+        <label for="examTime">考试时间：</label>
+        <input type="time" id="examTime" name="examTime">
+        <br>
+        <label for="timeLimits">考试时长：</label>
+        <input type="text" id="timeLimits" name="timeLimits">
         <br>
 
         <input type="submit" value="添加">

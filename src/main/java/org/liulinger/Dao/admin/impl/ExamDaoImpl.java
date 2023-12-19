@@ -57,6 +57,30 @@ public class ExamDaoImpl implements ExamDao {
         return false;
     }
 
+    @Override
+    public List<ExamBean> getExamsByUid(int offset, int limit, int courseId) {
+        List<ExamBean> examList = new ArrayList<>();
+
+        try (Connection connection = JDBCUtils.getConnection()) {
+            String sql = "SELECT * FROM exams WHERE course_id = ? LIMIT ?, ?";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                preparedStatement.setInt(1, courseId);
+                preparedStatement.setInt(2, offset);
+                preparedStatement.setInt(3, limit);
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    // 处理结果集
+                    while (resultSet.next()) {
+                        examList.add(getExam(resultSet));
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return examList;
+    }
+
     private ExamBean getExam(ResultSet resultSet) throws SQLException {
         ExamBean exam = new ExamBean();
 
